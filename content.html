@@ -10,7 +10,7 @@
         margin: 0;
         padding: 20px;
         background: white;
-        text-align: center;
+        text-align: center; /* Center everything */
     }
 
     h1 {
@@ -22,35 +22,50 @@
     .video-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px; /* Space between videos */
+        gap: 20px;
         justify-items: center;
+        width: 100%;
+        max-width: 1200px; /* Optional max width */
+        margin: 0 auto; /* Center the grid horizontally */
     }
 
-    /* Videos / Images */
-    .video-grid iframe,
-    .video-grid img {
+    .grid-item {
         width: 100%;
-        aspect-ratio: 9 / 16;
+        max-width: 250px; /* Adjust max video size */
+    }
+
+    .grid-item iframe,
+    .grid-item video,
+    .grid-item blockquote {
+        width: 100%;
         border-radius: 10px;
-        border: none;
+    }
+
+    /* For self-hosted videos */
+    .grid-item video {
+        height: auto;
     }
 
     /* Back arrow */
     .back-arrow {
-        margin-top: 30px;
-        font-size: 24px;
+        display: inline-block;
+        margin-top: 20px;
+        font-size: 18px;
         text-decoration: none;
         color: #333;
-        font-weight: bold;
+        font-weight: normal; /* Thin arrow like <--- */
     }
 
-    /* Mobile responsiveness */
+    /* Mobile adjustments */
     @media (max-width: 600px) {
         h1 {
             font-size: 28px;
         }
         .video-grid {
             gap: 15px;
+        }
+        .grid-item {
+            max-width: 100%;
         }
     }
 </style>
@@ -60,22 +75,57 @@
 <h1>Content Creation & Editing</h1>
 
 <div class="video-grid">
-    <!-- Instagram video -->
-    <iframe src="https://www.instagram.com/reel/DVVwkT7Amf2/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==/embed" allowfullscreen></iframe>
+    <!-- TikTok video (playable inline) -->
+    <div class="grid-item">
+        <iframe src="https://www.tiktok.com/@enough.headquarters/video/7606025948076494083?is_from_webapp=1&sender_device=pc&web_id=7546518630239962646"
+                height="570"
+                style="border:none;"
+                allowfullscreen>
+        </iframe>
+    </div>
 
-    <!-- TikTok video -->
-    <iframe src="https://www.tiktok.com/embed/XXXXXXXX" allowfullscreen></iframe>
-
-    <!-- Image placeholder -->
-    <img src="content1.jpg" alt="Content Preview 1">
-
-    <!-- Another video -->
-    <iframe src="https://www.instagram.com/p/YYYYYYYY/embed" allowfullscreen></iframe>
-
-    <!-- Add more videos/images as needed -->
+  <!-- Instagram official embed (clickable, shows likes/comments) -->
+<div class="grid-item">
+    <blockquote class="instagram-media" 
+                data-instgrm-permalink="https://www.instagram.com/reel/DU-mXcbgiEa/" 
+                data-instgrm-version="14" 
+                style="margin:0; padding:0; width:100%; max-width:100%;">
+        <a href="https://www.instagram.com/reel/DU-mXcbgiEa/" target="_blank"></a>
+    </blockquote>
 </div>
 
-<a href="index.html" class="back-arrow">&lt;---</a>
+    <!-- Another TikTok video -->
+    <div class="grid-item">
+        <iframe src="https://www.tiktok.com/embed/7209876543210987654"
+                height="570"
+                style="border:none;"
+                allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Another Instagram embed -->
+    <div class="grid-item">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Ck2XyzAbCdE/" data-instgrm-version="14" style="margin:0; padding:0; width:100%; max-width:100%;">
+            <a href="https://www.instagram.com/p/Ck2XyzAbCdE/" target="_blank"></a>
+        </blockquote>
+    </div>
+
+    <!-- Example self-hosted video -->
+    <div class="grid-item">
+        <video controls>
+            <source src="videos/my-video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- You can add more items here -->
+</div>
+
+<!-- Back arrow -->
+<a href="index.html" class="back-arrow"><---</a>
+
+<!-- Instagram embed script -->
+<script async src="//www.instagram.com/embed.js"></script>
 
 </body>
 </html>
