@@ -1,62 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Content Creation & Editing</title>
 
 <style>
-
-body{
-font-family: Helvetica, sans-serif;
-margin:0;
-background:white;
-text-align:center;
+/* --- General Styles --- */
+body {
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+  background: white;
+  text-align: center;
 }
 
-h1{
-margin-top:60px;
-margin-bottom:50px;
-font-size:36px;
+h1 {
+  margin-top: 60px;
+  margin-bottom: 50px;
+  font-size: 36px;
 }
 
-.grid{
-width:90%;
-max-width:1400px;
-margin-left:auto;
-margin-right:auto;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:20px;
-justify-items:center;
+/* --- Grid --- */
+.grid {
+  width: 90%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-items: center;
 }
 
-.video{
-width:100%;
-max-width:320px;
+/* --- Video wrapper for hover overlay --- */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
 }
 
-.back{
-margin:60px;
-font-size:24px;
-text-decoration:none;
-color:black;
-display:inline-block;
+.video {
+  width: 100%;
 }
 
-@media (max-width:1000px){
-.grid{
-grid-template-columns:repeat(2,1fr);
-}
+/* --- Overlay --- */
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.85); /* slightly transparent white */
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 14px;
+  color: #000;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: pre-line; /* allows multiple lines */
+  pointer-events: none; /* so clicking video works */
 }
 
-@media (max-width:600px){
-.grid{
-grid-template-columns:1fr;
-}
+.video-wrapper:hover .overlay {
+  opacity: 1;
 }
 
+/* --- Back button --- */
+.back {
+  margin: 60px;
+  font-size: 24px;
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .overlay {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+}
 </style>
-
 </head>
 
 <body>
@@ -65,188 +101,110 @@ grid-template-columns:1fr;
 
 <div class="grid">
 
+  <!-- Instagram Video 1 -->
+  <div class="video-wrapper">
+    <div class="video">
+      <blockquote class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/reel/DVVwkT7Amf2/"
+        data-instgrm-version="14" style="margin:0;width:100%;">
+        <a href="https://www.instagram.com/reel/DVVwkT7Amf2/" target="_blank"></a>
+      </blockquote>
+    </div>
+    <div class="overlay">Filming + Editing</div>
+  </div>
 
-<!-- INSTAGRAM VIDEO -->
-<div class="video">
+  <!-- Instagram Video 2 -->
+  <div class="video-wrapper">
+    <div class="video">
+      <blockquote class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/reel/DRw-vBfAr3W/"
+        data-instgrm-version="14" style="margin:0;width:100%;">
+        <a href="https://www.instagram.com/reel/DRw-vBfAr3W/" target="_blank"></a>
+      </blockquote>
+    </div>
+    <div class="overlay">Video Shooting  
+Video Editing</div>
+  </div>
 
-<blockquote class="instagram-media"
-data-instgrm-permalink="https://www.instagram.com/reel/DVVwkT7Amf2/"
-data-instgrm-version="14"
-style="margin:0;width:100%;">
+  <!-- Instagram Video 3 -->
+  <div class="video-wrapper">
+    <div class="video">
+      <blockquote class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/reel/DT0cKvogtar/"
+        data-instgrm-version="14" style="margin:0;width:100%;">
+        <a href="https://www.instagram.com/reel/DT0cKvogtar/" target="_blank"></a>
+      </blockquote>
+    </div>
+    <div class="overlay">Content Creation</div>
+  </div>
 
-<a href="https://www.instagram.com/reel/DVVwkT7Amf2/" target="_blank"></a>
+  <!-- Instagram Video 4 -->
+  <div class="video-wrapper">
+    <div class="video">
+      <blockquote class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/reel/DU-mXcbgiEa/"
+        data-instgrm-version="14" style="margin:0;width:100%;">
+        <a href="https://www.instagram.com/reel/DU-mXcbgiEa/" target="_blank"></a>
+      </blockquote>
+    </div>
+    <div class="overlay">Filming + Editing</div>
+  </div>
 
-</blockquote>
+  <!-- TikTok Video 1 -->
+  <div class="video-wrapper">
+    <div class="video">
+      <blockquote class="tiktok-embed"
+        cite="https://www.tiktok.com/@enough.headquarters/video/7522856631831498006"
+        data-video-id="7522856631831498006" style="max-width:100%;">
+        <section></section>
+      </blockquote>
+    </div>
+    <div class="overlay">Video Filming  
+TikTok Content</div>
+  </div>
 
-</div>
+  <!-- TikTok Video 2 -->
+  <div class="video-wrapper">
+    <div class="video">
+      <blockquote class="tiktok-embed"
+        cite="https://www.tiktok.com/@enough.headquarters/video/7606025948076494083"
+        data-video-id="7606025948076494083" style="max-width:100%;">
+        <section></section>
+      </blockquote>
+    </div>
+    <div class="overlay">Editing + Effects</div>
+  </div>
 
+  <!-- TikTok Video 3 -->
+  <div class="video-wrapper">
+    <div class="video">
+      <blockquote class="tiktok-embed"
+        cite="https://www.tiktok.com/@enough.headquarters/video/7523984929827409174"
+        data-video-id="7523984929827409174" style="max-width:100%;">
+        <section></section>
+      </blockquote>
+    </div>
+    <div class="overlay">Filming + Posting</div>
+  </div>
 
-<!-- INSTAGRAM VIDEO -->
-<div class="video">
-
-<blockquote class="instagram-media"
-data-instgrm-permalink="https://www.instagram.com/reel/DRw-vBfAr3W/"
-data-instgrm-version="14"
-style="margin:0;width:100%;">
-
-<a href="https://www.instagram.com/reel/DRw-vBfAr3W/" target="_blank"></a>
-
-</blockquote>
-
-</div>
-
-  <!-- INSTAGRAM VIDEO -->
-<div class="video">
-
-<blockquote class="instagram-media"
-data-instgrm-permalink="https://www.instagram.com/reel/DT0cKvogtar/"
-data-instgrm-version="14"
-style="margin:0;width:100%;">
-
-<a href="https://www.instagram.com/reel/DT0cKvogtar/" target="_blank"></a>
-
-</blockquote>
-
-</div>
-
-  <!-- INSTAGRAM VIDEO -->
-<div class="video">
-
-<blockquote class="instagram-media"
-data-instgrm-permalink="https://www.instagram.com/reel/DU-mXcbgiEa/"
-data-instgrm-version="14"
-style="margin:0;width:100%;">
-
-<a href="https://www.instagram.com/reel/DU-mXcbgiEa/" target="_blank"></a>
-
-</blockquote>
-
-</div>
-
-<!-- TIKTOK VIDEO -->
-<div class="video">
-
-<blockquote class="tiktok-embed"
-cite="https://www.tiktok.com/@enough.headquarters/video/7522856631831498006"
-data-video-id="7522856631831498006"
-style="max-width:100%;">
-
-<section></section>
-
-</blockquote>
-
-</div>
-
-
-<!-- TIKTOK VIDEO -->
-<div class="video">
-
-<blockquote class="tiktok-embed"
-cite="https://www.tiktok.com/@enough.headquarters/video/7606025948076494083"
-data-video-id="7606025948076494083"
-style="max-width:100%;">
-
-<section></section>
-
-</blockquote>
-
-</div>
-
-  <!-- TIKTOK VIDEO -->
-<div class="video">
-
-<blockquote class="tiktok-embed"
-cite="https://www.tiktok.com/@enough.headquarters/video/7523984929827409174"
-data-video-id="7523984929827409174"
-style="max-width:100%;">
-
-<section></section>
-
-</blockquote>
-
-</div>
-
-    <!-- TIKTOK VIDEO -->
-<div class="video">
-
-<blockquote class="tiktok-embed"
-cite="https://www.tiktok.com/@enough.headquarters/video/7594105924864757014"
-data-video-id="7594105924864757014"
-style="max-width:100%;">
-
-<section></section>
-
-</blockquote>
+  <!-- TikTok Video 4 -->
+  <div class="video-wrapper">
+    <div class="video">
+      <blockquote class="tiktok-embed"
+        cite="https://www.tiktok.com/@enough.headquarters/video/7594105924864757014"
+        data-video-id="7594105924864757014" style="max-width:100%;">
+        <section></section>
+      </blockquote>
+    </div>
+    <div class="overlay">Content Editing</div>
+  </div>
 
 </div>
-  
- <!-- INSTAGRAM VIDEO -->
-<div class="video">
-
-<blockquote class="instagram-media"
-data-instgrm-permalink="https://www.instagram.com/reel/DTf5ZgvAggd/"
-data-instgrm-version="14"
-style="margin:0;width:100%;">
-
-<a href="https://www.instagram.com/reel/DTf5ZgvAggd/" target="_blank"></a>
-
-</blockquote>
-
-</div>
-
-   <!-- INSTAGRAM VIDEO -->
-<div class="video">
-
-<blockquote class="instagram-media"
-data-instgrm-permalink="https://www.instagram.com/reel/DUD3FrtgveP/"
-data-instgrm-version="14"
-style="margin:0;width:100%;">
-
-<a href="https://www.instagram.com/reel/DUD3FrtgveP/" target="_blank"></a>
-
-</blockquote>
-
-</div>
-
-   <!-- INSTAGRAM VIDEO -->
-<div class="video">
-
-<blockquote class="instagram-media"
-data-instgrm-permalink="https://www.instagram.com/reel/DRpKHgmAk9c/"
-data-instgrm-version="14"
-style="margin:0;width:100%;">
-
-<a href="https://www.instagram.com/reel/DRpKHgmAk9c/" target="_blank"></a>
-
-</blockquote>
-
-</div>
-
-   <!-- INSTAGRAM VIDEO -->
-<div class="video">
-
-<blockquote class="instagram-media"
-data-instgrm-permalink="https://www.instagram.com/reel/DRrgR8NjFbA/"
-data-instgrm-version="14"
-style="margin:0;width:100%;">
-
-<a href="https://www.instagram.com/reel/DRrgR8NjFbA/" target="_blank"></a>
-
-</blockquote>
-
-</div>
-  
-</div>
-
 
 <a href="index.html" class="back"><---</a>
 
-
 <script async src="//www.instagram.com/embed.js"></script>
-
 <script async src="https://www.tiktok.com/embed.js"></script>
 
-
 </body>
-
 </html>
