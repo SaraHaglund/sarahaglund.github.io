@@ -5,15 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Content Creation & Editing - Sara Haglund</title>
 <style>
-    /* General styles */
     body {
         font-family: Helvetica, sans-serif;
         margin: 0;
         padding: 20px;
         background: white;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         text-align: center;
     }
 
@@ -22,21 +18,19 @@
         margin-bottom: 30px;
     }
 
-    /* Container for videos */
-    .video-feed {
-        display: flex;
-        flex-direction: column;
-        gap: 40px; /* Space between rows */
-        width: 100%;
-        max-width: 400px; /* Max width for desktop */
+    /* Grid container */
+    .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px; /* Space between videos */
+        justify-items: center;
     }
 
-    /* Each video container */
-    .video-feed iframe, 
-    .video-feed img {
+    /* Videos / Images */
+    .video-grid iframe,
+    .video-grid img {
         width: 100%;
-        max-width: 400px;
-        aspect-ratio: 9 / 16; /* Standard vertical video ratio */
+        aspect-ratio: 9 / 16;
         border-radius: 10px;
         border: none;
     }
@@ -51,12 +45,12 @@
     }
 
     /* Mobile responsiveness */
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
         h1 {
             font-size: 28px;
         }
-        .video-feed {
-            gap: 20px;
+        .video-grid {
+            gap: 15px;
         }
     }
 </style>
@@ -65,18 +59,22 @@
 
 <h1>Content Creation & Editing</h1>
 
-<div class="video-feed">
-    <!-- Example Instagram video -->
+<div class="video-grid">
+    <!-- Instagram video -->
     <iframe src="https://www.instagram.com/p/XXXXXXXX/embed" allowfullscreen></iframe>
 
-    <!-- Example TikTok video -->
+    <!-- TikTok video -->
     <iframe src="https://www.tiktok.com/embed/XXXXXXXX" allowfullscreen></iframe>
 
-    <!-- You can also add image previews if needed -->
+    <!-- Image placeholder -->
     <img src="content1.jpg" alt="Content Preview 1">
+
+    <!-- Another video -->
+    <iframe src="https://www.instagram.com/p/YYYYYYYY/embed" allowfullscreen></iframe>
+
+    <!-- Add more videos/images as needed -->
 </div>
 
-<!-- Simple back arrow -->
 <a href="index.html" class="back-arrow">&lt;---</a>
 
 </body>
