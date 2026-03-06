@@ -1,51 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Content Creation & Editing - Sara Haglund</title>
-    <style>
-        body {
-            font-family: Helvetica, sans-serif;
-            margin: 0;
-            padding: 40px;
-            text-align: center;
-            background: white;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Creation & Editing - Sara Haglund</title>
+<style>
+    /* General styles */
+    body {
+        font-family: Helvetica, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+
+    /* Container for videos */
+    .video-feed {
+        display: flex;
+        flex-direction: column;
+        gap: 40px; /* Space between rows */
+        width: 100%;
+        max-width: 400px; /* Max width for desktop */
+    }
+
+    /* Each video container */
+    .video-feed iframe, 
+    .video-feed img {
+        width: 100%;
+        max-width: 400px;
+        aspect-ratio: 9 / 16; /* Standard vertical video ratio */
+        border-radius: 10px;
+        border: none;
+    }
+
+    /* Back arrow */
+    .back-arrow {
+        margin-top: 30px;
+        font-size: 24px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 500px) {
         h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
+            font-size: 28px;
         }
-        .video-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
+        .video-feed {
+            gap: 20px;
         }
-        iframe {
-            border: none;
-            width: 320px;
-            height: 570px; /* Instagram/TikTok standard portrait ratio */
-            border-radius: 10px;
-        }
-        a.back {
-            display: inline-block;
-            margin-top: 40px;
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
-    <h1>Content Creation & Editing</h1>
 
-    <div class="video-container">
-        <!-- Instagram Embed -->
-        <iframe src="https://www.instagram.com/p/XXXXXXXX/embed" allowfullscreen></iframe>
+<h1>Content Creation & Editing</h1>
 
-        <!-- TikTok Embed -->
-        <iframe src="https://www.tiktok.com/embed/XXXXXXXX" allowfullscreen></iframe>
-    </div>
+<div class="video-feed">
+    <!-- Example Instagram video -->
+    <iframe src="https://www.instagram.com/p/XXXXXXXX/embed" allowfullscreen></iframe>
 
-    <a href="index.html" class="back">⬅ Back to Home</a>
+    <!-- Example TikTok video -->
+    <iframe src="https://www.tiktok.com/embed/XXXXXXXX" allowfullscreen></iframe>
+
+    <!-- You can also add image previews if needed -->
+    <img src="content1.jpg" alt="Content Preview 1">
+</div>
+
+<!-- Simple back arrow -->
+<a href="index.html" class="back-arrow">&lt;---</a>
+
 </body>
 </html>
