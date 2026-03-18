@@ -1,26 +1,44 @@
+<!-- ================= LANDING PAGE (index.html) ================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sara Haglund</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
+
 <style>
-/* --- General Styles --- */
+:root {
+  --bg-color: white;
+  --text-color: black;
+}
+
 body {
   font-family: Helvetica, sans-serif;
   margin: 0;
   text-align: center;
-  background: white;
+  background: var(--bg-color);
+  color: var(--text-color);
 }
 
-h1 {
-  margin-top: 80px;
-  font-size: 42px;
+/* --- Top Bar --- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
 }
 
-p {
-  color: #666;
-  margin-bottom: 60px;
+.logo {
+  font-family: 'Gloock', serif;
+  font-size: 28px;
+}
+
+.nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: var(--text-color);
 }
 
 /* --- Container --- */
@@ -28,34 +46,39 @@ p {
   display: flex;
   justify-content: center;
   gap: 40px;
-  flex-wrap: wrap; /* allows wrapping on small screens */
-  padding: 0 20px; /* padding for mobile */
+  flex-wrap: wrap;
+  padding: 40px 20px;
 }
 
-/* --- Card Wrapper --- */
 .card-wrapper {
-  flex: 1 1 300px; /* grow/shrink, min width 300px */
-  max-width: 470px; /* max card width */
+  flex: 1 1 300px;
+  max-width: 470px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 40px;
 }
 
-.card-wrapper h2 {
-  margin-bottom: 20px;
-  font-size: 28px;
+/* --- Hover Title --- */
+.hover-title {
+  margin-bottom: 15px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+}
+
+.hover-title:hover {
+  border: 1px solid var(--text-color);
+  background: var(--bg-color);
 }
 
 /* --- Card --- */
 .card {
   position: relative;
   width: 100%;
-  aspect-ratio: 470 / 760; /* keeps height/width ratio consistent */
+  aspect-ratio: 470 / 760;
   overflow: hidden;
-  border-radius: 12px; /* optional rounded corners */
   cursor: pointer;
-  transition: transform 0.3s ease;
 }
 
 .card img {
@@ -69,30 +92,10 @@ p {
   transform: scale(1.05);
 }
 
-/* --- Title overlay (optional if you want text on images) --- */
-.title {
-  position: absolute;
-  top: 20px;
-  left: 0;
-  right: 0;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  letter-spacing: 1px;
-  text-shadow: 0 0 5px rgba(0,0,0,0.5);
-}
-
-/* --- Responsive Text --- */
+/* --- Mobile --- */
 @media (max-width: 600px) {
-  h1 {
-    font-size: 32px;
-    margin-top: 40px;
-  }
-  p {
-    margin-bottom: 40px;
-  }
-  .card-wrapper h2 {
-    font-size: 24px;
+  .card {
+    transform: scale(0.85); /* 15% smaller */
   }
 }
 </style>
@@ -100,22 +103,28 @@ p {
 
 <body>
 
-<h1>Sara Haglund</h1>
-<p>Freelance Fashion Designer & Content Creator</p>
+<div class="header">
+  <div class="logo">SARA HAGLUND</div>
+  <div class="nav">
+    <a href="index.html">HOME</a>
+    <a href="#">ABOUT</a>
+    <a href="#">CONTACT</a>
+  </div>
+</div>
 
 <div class="container">
 
   <div class="card-wrapper">
-    <h2>FASHION</h2>
+    <div class="hover-title">FASHION DESIGN</div>
     <a href="portfolio.html" class="card">
-      <img src="portfolio.jpg" alt="Fashion Portfolio">
+      <img src="portfolio.jpg" alt="Fashion">
     </a>
   </div>
 
   <div class="card-wrapper">
-    <h2>CONTENT & EDITING</h2>
+    <div class="hover-title">SOCIAL MEDIA</div>
     <a href="content.html" class="card">
-      <img src="content.jpg" alt="Content Creation">
+      <img src="content.jpg" alt="Content">
     </a>
   </div>
 
