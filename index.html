@@ -21,7 +21,7 @@ body {
   color: var(--text-color);
 }
 
-/* --- Header --- */
+/* --- HEADER --- */
 .header {
   padding: 20px 40px 10px;
 }
@@ -32,28 +32,37 @@ body {
   align-items: flex-start;
 }
 
-/* LEFT SIDE (NAME + SUBTEXT) */
 .header-left {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  position: relative;
 }
 
 .logo {
   font-family: 'Gloock', serif;
   font-size: 64px;
   line-height: 0.9;
+  position: relative;
+}
+
+/* LINE GOING THROUGH NAME */
+.logo::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100vw;
+  height: 1px;
+  background: var(--text-color);
+  transform: translateY(-50%);
+  z-index: -1;
 }
 
 .subtext {
   font-size: 14px;
   margin-top: 8px;
   letter-spacing: 1px;
-}
-
-/* NAV */
-.nav {
-  margin-top: 10px;
 }
 
 .nav a {
@@ -63,14 +72,7 @@ body {
   font-size: 14px;
 }
 
-/* BLACK LINE */
-.header-line {
-  height: 2px;
-  background: var(--text-color);
-  margin-top: 15px;
-}
-
-/* --- Container --- */
+/* --- CONTAINER --- */
 .container {
   display: flex;
   justify-content: center;
@@ -81,16 +83,39 @@ body {
 
 .card-wrapper {
   flex: 1 1 300px;
-  max-width: 470px;
+  max-width: 420px;
 }
 
-/* --- Card --- */
-.card {
+/* --- TITLE ABOVE IMAGE --- */
+.card-title {
+  margin-bottom: 12px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  display: inline-block;
   position: relative;
+}
+
+/* LINE ON HOVER */
+.card-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background: var(--text-color);
+  transition: width 0.3s ease;
+}
+
+.card-wrapper:hover .card-title::after {
   width: 100%;
-  aspect-ratio: 470 / 760;
+}
+
+/* --- CARD --- */
+.card {
+  width: 100%;
+  aspect-ratio: 3 / 5; /* LONGER IMAGE */
   overflow: hidden;
-  cursor: pointer;
 }
 
 .card img {
@@ -104,26 +129,7 @@ body {
   transform: scale(1.05);
 }
 
-/* --- TEXT ON TOP OF IMAGE --- */
-.card-title {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: var(--text-color);
-  font-size: 18px;
-  letter-spacing: 1px;
-  padding: 6px 12px;
-  transition: all 0.3s ease;
-  background: transparent;
-}
-
-.card:hover .card-title {
-  border: 1px solid var(--text-color);
-  background: var(--bg-color);
-}
-
-/* --- Mobile --- */
+/* --- MOBILE --- */
 @media (max-width: 600px) {
   .card {
     transform: scale(0.85);
@@ -136,32 +142,31 @@ body {
 
 <div class="header">
   <div class="header-top">
-   <div class="header-left">
-  <div class="logo">SARA HAGLUND</div>
-  <div class="subtext">FREELANCE FASHION DESIGNER & CONTENT CREATOR</div>
-</div>
+    <div class="header-left">
+      <div class="logo">SARA HAGLUND</div>
+      <div class="subtext">FREELANCE FASHION DESIGNER & CONTENT CREATOR</div>
+    </div>
     <div class="nav">
       <a href="index.html">HOME</a>
       <a href="about.html">ABOUT ME</a>
-      <a href="mailto:sirihaglund@gmail.com">CONTACT</a>
+      <a href="mailto:your@email.com">CONTACT</a>
     </div>
   </div>
-  <div class="header-line"></div>
 </div>
 
 <div class="container">
 
   <div class="card-wrapper">
+    <div class="card-title">FASHION DESIGN</div>
     <a href="portfolio.html" class="card">
       <img src="portfolio.jpg" alt="Fashion">
-      <div class="card-title">FASHION DESIGN</div>
     </a>
   </div>
 
   <div class="card-wrapper">
+    <div class="card-title">SOCIAL MEDIA</div>
     <a href="content.html" class="card">
       <img src="content.jpg" alt="Content">
-      <div class="card-title">SOCIAL MEDIA</div>
     </a>
   </div>
 
