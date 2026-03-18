@@ -1,4 +1,3 @@
-<!-- ================= LANDING PAGE (index.html) ================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,12 +21,15 @@ body {
   color: var(--text-color);
 }
 
-/* --- Top Bar --- */
+/* --- Header --- */
 .header {
+  padding: 20px 40px 10px;
+}
+
+.header-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
 }
 
 .logo {
@@ -39,6 +41,13 @@ body {
   margin-left: 20px;
   text-decoration: none;
   color: var(--text-color);
+}
+
+/* BLACK LINE */
+.header-line {
+  height: 2px;
+  background: var(--text-color);
+  margin-top: 15px;
 }
 
 /* --- Container --- */
@@ -53,23 +62,6 @@ body {
 .card-wrapper {
   flex: 1 1 300px;
   max-width: 470px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* --- Hover Title --- */
-.hover-title {
-  margin-bottom: 15px;
-  font-size: 20px;
-  letter-spacing: 1px;
-  padding: 5px 10px;
-  transition: all 0.3s ease;
-}
-
-.hover-title:hover {
-  border: 1px solid var(--text-color);
-  background: var(--bg-color);
 }
 
 /* --- Card --- */
@@ -92,10 +84,29 @@ body {
   transform: scale(1.05);
 }
 
+/* --- TEXT ON TOP OF IMAGE --- */
+.card-title {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-color);
+  font-size: 18px;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.card:hover .card-title {
+  border: 1px solid var(--text-color);
+  background: var(--bg-color);
+}
+
 /* --- Mobile --- */
 @media (max-width: 600px) {
   .card {
-    transform: scale(0.85); /* 15% smaller */
+    transform: scale(0.85);
   }
 }
 </style>
@@ -104,27 +115,30 @@ body {
 <body>
 
 <div class="header">
-  <div class="logo">SARA HAGLUND</div>
-  <div class="nav">
-    <a href="index.html">HOME</a>
-    <a href="#">ABOUT</a>
-    <a href="#">CONTACT</a>
+  <div class="header-top">
+    <div class="logo">SARA HAGLUND</div>
+    <div class="nav">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT ME</a>
+      <a href="mailto:your@email.com">CONTACT</a>
+    </div>
   </div>
+  <div class="header-line"></div>
 </div>
 
 <div class="container">
 
   <div class="card-wrapper">
-    <div class="hover-title">FASHION DESIGN</div>
     <a href="portfolio.html" class="card">
       <img src="portfolio.jpg" alt="Fashion">
+      <div class="card-title">FASHION DESIGN</div>
     </a>
   </div>
 
   <div class="card-wrapper">
-    <div class="hover-title">SOCIAL MEDIA</div>
     <a href="content.html" class="card">
       <img src="content.jpg" alt="Content">
+      <div class="card-title">SOCIAL MEDIA</div>
     </a>
   </div>
 
