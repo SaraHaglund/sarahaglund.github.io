@@ -51,7 +51,8 @@ body {
   content: "";
   position: absolute;
   left: 0;
-  top: 64%; /* adjusted to match A crossbar visually */
+  top: 0.55em;
+  opacity: 0.6;
   width: 100vw;
   height: 1px;
   background: var(--text-color);
@@ -117,7 +118,7 @@ body {
 /* --- CARD --- */
 .card {
   width: 100%;
-  aspect-ratio: 3 / 5;
+  aspect-ratio: 9 / 16;
   overflow: hidden;
 }
 
@@ -125,7 +126,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: none; /* REMOVE POP EFFECT */
+  transition: none; 
 }
 
 /* --- MOBILE --- */
