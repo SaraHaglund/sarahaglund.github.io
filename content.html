@@ -83,7 +83,7 @@ h1 {
   margin-bottom: 50px;
   font-family: Helvetica, sans-serif;
   font-weight: normal;
-  font-size: 18px; /* same as card titles on landing */
+  font-size: 18px; 
   letter-spacing: 1px;
   text-transform: uppercase;
 }
@@ -115,7 +115,7 @@ h1 {
   background: rgba(255, 255, 255, 0.85);
   padding: 12px 20px;
   border-radius: 8px;
-  font-family: Helvetica, sans-serif; /* changed from monospace */
+  font-family: Helvetica, sans-serif; 
   font-weight: normal;
   font-size: 14px;
   color: #000;
@@ -138,6 +138,38 @@ h1 {
 }
 
 @media (max-width: 600px) {
+
+  .header-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .header-left {
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 40px;
+  }
+
+  .subtext {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    margin-top: 6px;
+    text-align: center;
+  }
+
+  .nav {
+    margin-top: 10px;
+  }
+
+  .nav a {
+    margin: 0 8px;
+    font-size: 12px;
+  }
+
   h1 {
     font-size: 16px;
   }
