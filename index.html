@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,28 +17,23 @@
 body {
   font-family: Helvetica, sans-serif;
   margin: 0;
-  text-align: center;
   background: var(--bg-color);
   color: var(--text-color);
 }
 
 /* HEADER */
 .header {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1000;
   padding: 20px 40px 10px;
-  overflow: visible;
 }
 
 .header-top {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-}
-
-.header-left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  position: relative;
 }
 
 .logo {
@@ -47,74 +43,43 @@ body {
   position: relative;
 }
 
-/* FULL WIDTH LINE */
 .logo::after {
   content: "";
   position: absolute;
-  left: 0%;
+  left: 0;
   top: 0.55em;
   width: 100vw;
   height: 1px;
-  background: var(--text-color);
-  opacity: 0.6;
-  transform: translateY(-50%);
+  background: black;
+  opacity: 0.5;
   z-index: -1;
 }
 
 .subtext {
-  font-size: 14px;
-  margin-top: 12px;
+  font-size: 13px;
+  margin-top: 10px;
   letter-spacing: 1px;
-  text-align: center;
-  width: 100%;
 }
 
 .nav a {
   margin-left: 25px;
   text-decoration: none;
-  color: var(--text-color);
+  color: black;
   font-size: 14px;
 }
 
-/* CONTENT */
+/* CARDS */
 .container {
   display: flex;
   justify-content: center;
   gap: 60px;
+  padding: 60px 20px;
   flex-wrap: wrap;
-  padding: 40px 20px;
-}
-
-.card-wrapper {
-  flex: 1 1 300px;
-  max-width: 420px;
-}
-
-.card-title {
-  margin-bottom: 20px;
-  font-size: 18px;
-  letter-spacing: 1px;
-  display: inline-block;
-  position: relative;
-}
-
-.card-title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0;
-  height: 1px;
-  background: var(--text-color);
-  transition: width 0.3s ease;
-}
-
-.card-wrapper:hover .card-title::after {
-  width: 100%;
 }
 
 .card {
-  width: 100%;
+  position: relative;
+  width: 320px;
   aspect-ratio: 9 / 16;
   overflow: hidden;
 }
@@ -125,41 +90,59 @@ body {
   object-fit: cover;
 }
 
+.card-overlay {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255,255,255,0.8);
+  padding: 14px 24px;
+  letter-spacing: 1px;
+}
+
+.card-overlay::after {
+  content: "";
+  display: block;
+  margin-top: 6px;
+  height: 1px;
+  width: 0;
+  background: black;
+  transition: 0.3s;
+}
+
+.card:hover .card-overlay::after {
+  width: 100%;
+}
+
 /* MOBILE */
 @media (max-width: 600px) {
+
+  .header {
+    padding: 15px;
+  }
 
   .header-top {
     flex-direction: column;
     align-items: center;
-    text-align: center;
-  }
-
-  .header-left {
-    align-items: center;
-  }
-
-  .nav {
-    margin-top: 12px;
-  }
-
-  .nav a {
-    margin: 0 10px;
-    font-size: 12px;
   }
 
   .logo {
-    font-size: 42px;
+    font-size: 34px;
   }
 
   .subtext {
     font-size: 10px;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    margin-top: 6px;
+    text-align: center;
   }
 
-  .card {
-    transform: scale(0.85);
+  .nav {
+    margin-top: 10px;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
   }
 }
 </style>
@@ -169,13 +152,14 @@ body {
 
 <div class="header">
   <div class="header-top">
-    <div class="header-left">
+    <div>
       <div class="logo">SARA HAGLUND</div>
       <div class="subtext">FREELANCE FASHION DESIGNER & CONTENT CREATOR</div>
     </div>
+
     <div class="nav">
       <a href="index.html">HOME</a>
-      <a href="about.html">ABOUT ME</a>
+      <a href="about.html">ABOUT</a>
       <a href="mailto:sirihaglund@gmail.com">CONTACT</a>
     </div>
   </div>
@@ -183,21 +167,18 @@ body {
 
 <div class="container">
 
-  <div class="card-wrapper">
-    <div class="card-title">FASHION DESIGN</div>
-    <a href="portfolio.html" class="card">
-      <img src="portfolio.jpg">
-    </a>
-  </div>
+  <a href="portfolio.html" class="card">
+    <img src="portfolio.jpg">
+    <div class="card-overlay">FASHION DESIGN</div>
+  </a>
 
-  <div class="card-wrapper">
-    <div class="card-title">SOCIAL MEDIA</div>
-    <a href="content.html" class="card">
-      <img src="content.jpg">
-    </a>
-  </div>
+  <a href="content.html" class="card">
+    <img src="content.jpg">
+    <div class="card-overlay">CONTENT CREATION</div>
+  </a>
 
 </div>
 
 </body>
 </html>
+```
