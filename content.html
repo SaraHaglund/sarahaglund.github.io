@@ -1,194 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Content Creation & Editing</title>
+<title>Content</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --bg-color: white;
-  --text-color: black;
-}
-
 body {
   font-family: Helvetica, sans-serif;
   margin: 0;
-  text-align: center;
-  background: var(--bg-color);
-  color: var(--text-color);
 }
 
-/* HEADER */
+/* HEADER (same as index) */
 .header {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1000;
   padding: 20px 40px 10px;
-  overflow: visible;
 }
 
 .header-top {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-}
-
-.header-left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  position: relative;
 }
 
 .logo {
   font-family: 'Gloock', serif;
   font-size: 64px;
-  line-height: 0.9;
   position: relative;
 }
 
-/* FULL WIDTH LINE */
 .logo::after {
   content: "";
   position: absolute;
-  left: 0%;
   top: 0.55em;
   width: 100vw;
   height: 1px;
-  background: var(--text-color);
-  opacity: 0.6;
-  transform: translateY(-50%);
-  z-index: -1;
+  background: black;
+  opacity: 0.5;
 }
 
 .subtext {
-  font-size: 14px;
-  margin-top: 12px;
-  letter-spacing: 1px;
-  text-align: center;
-  width: 100%;
+  font-size: 13px;
 }
 
 .nav a {
   margin-left: 25px;
   text-decoration: none;
-  color: var(--text-color);
-  font-size: 14px;
+  color: black;
 }
 
-/* PAGE TITLE */
+/* TITLE */
 h1 {
-  margin-top: 60px;
-  margin-bottom: 50px;
-  font-family: Helvetica, sans-serif;
-  font-weight: bold;
-  font-size: 18px; 
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  white-space: nowrap; 
   text-align: center;
+  margin: 60px 0;
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: 500;
 }
 
-/* --- Grid --- */
+/* GRID */
 .grid {
   width: 90%;
-  max-width: 1400px;
-  margin: 0 auto 60px auto;
+  margin: auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  justify-items: center;
+  gap: 30px;
 }
 
-/* --- Video wrapper for hover overlay --- */
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 320px;
+/* FIXED VIDEO RATIO */
+.video iframe,
+.video blockquote {
+  width: 100% !important;
+  aspect-ratio: 9 / 16;
 }
 
-/* --- Overlay --- */
-.overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.85);
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-family: Helvetica, sans-serif; 
-  font-weight: normal;
-  font-size: 14px;
-  color: #000;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  white-space: pre-line;
-  pointer-events: none;
-}
-
-.video-wrapper:hover .overlay {
-  opacity: 1;
-}
-
-/* --- Responsive --- */
-@media (max-width: 1000px) {
+/* MOBILE */
+@media (max-width: 600px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
-}
-
-@media (max-width: 600px) {
-
-  .header-top {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .header-left {
-    align-items: center;
-  }
 
   .logo {
-    font-size: 40px;
-  }
-
-  .subtext {
-    font-size: 10px;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    margin-top: 6px;
-    text-align: center;
-  }
-
-  .nav {
-    margin-top: 10px;
-  }
-
-  .nav a {
-    margin: 0 8px;
-    font-size: 12px;
-  }
-
-  h1 {
-    font-size: 14px;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .overlay {
-    font-size: 12px;
-    padding: 8px 16px;
-  }
-
-  .back {
-    font-size: 20px;
-    margin: 20px 0 40px 0;
+    font-size: 34px;
   }
 }
 </style>
@@ -198,13 +95,14 @@ h1 {
 
 <div class="header">
   <div class="header-top">
-    <div class="header-left">
+    <div>
       <div class="logo">SARA HAGLUND</div>
       <div class="subtext">FREELANCE FASHION DESIGNER & CONTENT CREATOR</div>
     </div>
+
     <div class="nav">
       <a href="index.html">HOME</a>
-      <a href="about.html">ABOUT ME</a>
+      <a href="about.html">ABOUT</a>
       <a href="mailto:sirihaglund@gmail.com">CONTACT</a>
     </div>
   </div>
