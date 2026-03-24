@@ -90,29 +90,35 @@ body {
   object-fit: cover;
 }
 
+/* TEXT BOX (rectangle) */
 .card-overlay {
   position: absolute;
   top: 38%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: rgba(255,255,255,0.8);
-  padding: 14px 24px;
+  padding: 12px 22px;
   letter-spacing: 1px;
+  white-space: nowrap;
+  z-index: 2;
 }
 
-.card-overlay::after {
+/* FULL IMAGE HOVER EFFECT */
+.card::before {
   content: "";
-  display: block;
-  margin-top: 6px;
-  height: 1px;
-  width: 0;
-  background: black;
-  transition: 0.3s;
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.8);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
 }
 
-.card:hover .card-overlay::after {
-  width: 100%;
+.card:hover::before {
+  opacity: 1;
 }
+
+
 
 /* MOBILE */
 @media (max-width: 600px) {
