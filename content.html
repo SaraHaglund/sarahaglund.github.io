@@ -80,21 +80,21 @@ h1 {
   justify-items: center;
 }
 
-/* WRAPPER */
+/* WRAPPERS */
 .video-wrapper {
   position: relative;
   width: 100%;
   max-width: 320px;
 }
 
-/* RATIO */
-.video-wrapper::before {
+/* Instagram videos */
+.instagram-wrapper::before {
   content: "";
   display: block;
-  padding-top: 177.78%; /* 9:16 vertical video ratio */
+  padding-top: 177.78%; /* 9:16 ratio */
 }
 
-.video {
+.instagram-wrapper .video {
   position: absolute;
   top: 0;
   left: 0;
@@ -102,6 +102,13 @@ h1 {
   height: 100%;
 }
 
+/* TikTok videos */
+.tiktok-wrapper .video {
+  width: 100%;
+  min-height: 570px; /* TikTok needs visible height to render */
+}
+
+/* ALL VIDEOS */
 .video iframe,
 .video blockquote {
   width: 100% !important;
@@ -134,10 +141,12 @@ h1 {
   .logo {
     font-size: 34px;
   }
+  .tiktok-wrapper .video {
+    min-height: 400px; /* smaller screen */
+  }
 }
 </style>
 </head>
-
 <body>
 
 <div class="header">
