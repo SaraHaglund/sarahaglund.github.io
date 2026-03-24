@@ -13,7 +13,7 @@ body {
   margin: 0;
 }
 
-/* HEADER (same as index) */
+/* HEADER */
 .header {
   position: sticky;
   top: 0;
@@ -25,32 +25,39 @@ body {
 .header-top {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 .logo {
   font-family: 'Gloock', serif;
   font-size: 64px;
+  line-height: 0.9;
   position: relative;
 }
 
 .logo::after {
   content: "";
   position: absolute;
+  left: 0;
   top: 0.55em;
   width: 100vw;
   height: 1px;
   background: black;
   opacity: 0.5;
+  z-index: -1;
 }
 
 .subtext {
   font-size: 13px;
+  margin-top: 10px;
+  letter-spacing: 1px;
 }
 
 .nav a {
   margin-left: 25px;
   text-decoration: none;
   color: black;
+  font-size: 14px;
 }
 
 /* TITLE */
