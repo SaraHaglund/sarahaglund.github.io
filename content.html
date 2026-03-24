@@ -79,10 +79,20 @@ h1 {
 }
 
 /* FIXED VIDEO RATIO */
+.video {
+position: relative;
+width: 100%;
+padding-top: 177.77%; /* 9:16 ratio */
+overflow: hidden;
+}
+
 .video iframe,
 .video blockquote {
-  width: 100% !important;
-  aspect-ratio: 9 / 16;
+position: absolute !important;
+top: 0;
+left: 0;
+width: 100% !important;
+height: 100% !important;
 }
 
 /* MOBILE */
