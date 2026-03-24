@@ -5,46 +5,155 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Content</title>
 <link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
+
 <style>
-body { font-family: Helvetica, sans-serif; margin:0; }
+body {
+  font-family: Helvetica, sans-serif;
+  margin:0;
+}
 
 /* HEADER */
-.header { position: sticky; top:0; background:white; z-index:1000; padding:20px 40px 10px; }
-.header-top { display:flex; justify-content:space-between; align-items:flex-start; }
-.logo { font-family:'Gloock', serif; font-size:64px; line-height:0.9; position:relative; }
-.logo::after { content:""; position:absolute; left:0; top:0.55em; width:100vw; height:1px; background:black; opacity:0.5; z-index:-1; }
-.subtext { font-size:13px; margin-top:10px; letter-spacing:1px; }
-.nav a { margin-left:25px; text-decoration:none; color:black; font-size:14px; }
+.header {
+  position: sticky;
+  top:0;
+  background:white;
+  z-index:1000;
+  padding:20px 20px 10px;
+}
+
+.header-top {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.logo {
+  font-family:'Gloock', serif;
+  font-size:64px;
+  line-height:0.9;
+  position:relative;
+}
+
+.logo::after {
+  content:"";
+  position:absolute;
+  left:0;
+  top:0.55em;
+  width:100vw;
+  height:1px;
+  background:black;
+  opacity:0.5;
+  z-index:-1;
+}
+
+.subtext {
+  font-size:13px;
+  margin-top:10px;
+  letter-spacing:1px;
+}
+
+.nav {
+  display:flex;
+  gap:20px;
+}
+
+.nav a {
+  text-decoration:none;
+  color:black;
+  font-size:14px;
+}
+
+/* MOBILE HEADER FIX */
+@media(max-width:700px){
+  .header-top {
+    flex-direction:column;
+    text-align:center;
+    gap:10px;
+  }
+
+  .nav {
+    justify-content:center;
+  }
+
+  .logo {
+    font-size:36px;
+  }
+}
 
 /* TITLE */
-h1 { text-align:center; margin:60px 0; font-size:16px; letter-spacing:2px; font-weight:500; }
+h1 {
+  text-align:center;
+  margin:60px 20px;
+  font-size:16px;
+  letter-spacing:2px;
+  font-weight:500;
+}
 
 /* GRID */
-.grid { width:90%; max-width:1200px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; justify-items:center; padding-bottom:60px; }
+.grid {
+  width:100%;
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:40px;
+  padding:0 20px 60px;
+}
 
-/* WRAPPERS */
-.video-wrapper { position:relative; width:100%; max-width:320px; }
+/* VIDEO WRAPPER */
+.video-wrapper {
+  display:flex;
+  justify-content:center;
+  position:relative;
+}
 
-/* Instagram — no forced aspect ratio, let embed set its own height */
-.instagram-wrapper .video { width:100%; }
-.instagram-wrapper .video blockquote { width:100% !important; min-width:unset !important; }
+/* INNER VIDEO (this is IMPORTANT) */
+.video {
+  width:100%;
+  max-width:320px;
+}
 
-/* TikTok */
-.tiktok-wrapper .video { width:100%; }
+/* INSTAGRAM FIX (prevents stretch) */
+.instagram-media {
+  margin:0 auto !important;
+  width:100% !important;
+  max-width:320px !important;
+  min-width:unset !important;
+}
+
+/* TIKTOK FIX */
+.tiktok-embed {
+  margin:0 auto !important;
+  width:100% !important;
+  max-width:320px !important;
+}
 
 /* OVERLAY */
 .overlay {
-  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-  background:rgba(255,255,255,0.8); padding:10px 18px;
-  font-size:13px; letter-spacing:1px; text-align:center;
-  opacity:0; transition:0.3s; z-index:2; white-space:pre-line;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:rgba(255,255,255,0.85);
+  padding:10px 18px;
+  font-size:13px;
+  letter-spacing:1px;
+  text-align:center;
+  opacity:0;
+  transition:0.3s;
+  z-index:2;
+  white-space:pre-line;
   pointer-events:none;
 }
-.video-wrapper:hover .overlay { opacity:1; }
 
-@media(max-width:600px){ .logo{ font-size:34px; } }
+.video-wrapper:hover .overlay {
+  opacity:1;
+}
+
 </style>
 </head>
+
 <body>
 
 <div class="header">
@@ -53,6 +162,7 @@ h1 { text-align:center; margin:60px 0; font-size:16px; letter-spacing:2px; font-
       <div class="logo">SARA HAGLUND</div>
       <div class="subtext">FREELANCE FASHION DESIGNER & CONTENT CREATOR</div>
     </div>
+
     <div class="nav">
       <a href="index.html">HOME</a>
       <a href="about.html">ABOUT</a>
@@ -102,7 +212,6 @@ Video Editing</div>
 <div class="video-wrapper tiktok-wrapper">
   <div class="video">
     <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7522856631831498006" data-video-id="7522856631831498006">
-      <script async src="https://www.tiktok.com/embed.js"></script>
     </blockquote>
   </div>
   <div class="overlay">Video Filming
@@ -113,7 +222,6 @@ TikTok Content</div>
 <div class="video-wrapper tiktok-wrapper">
   <div class="video">
     <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7606025948076494083" data-video-id="7606025948076494083">
-      <script async src="https://www.tiktok.com/embed.js"></script>
     </blockquote>
   </div>
   <div class="overlay">Editing + Effects</div>
@@ -123,7 +231,6 @@ TikTok Content</div>
 <div class="video-wrapper tiktok-wrapper">
   <div class="video">
     <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7523984929827409174" data-video-id="7523984929827409174">
-      <script async src="https://www.tiktok.com/embed.js"></script>
     </blockquote>
   </div>
   <div class="overlay">Filming + Posting</div>
@@ -133,7 +240,6 @@ TikTok Content</div>
 <div class="video-wrapper tiktok-wrapper">
   <div class="video">
     <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7594105924864757014" data-video-id="7594105924864757014">
-      <script async src="https://www.tiktok.com/embed.js"></script>
     </blockquote>
   </div>
   <div class="overlay">Content Editing</div>
@@ -176,7 +282,6 @@ Video Editing</div>
 <div class="video-wrapper tiktok-wrapper">
   <div class="video">
     <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7614826229799193858" data-video-id="7614826229799193858">
-      <script async src="https://www.tiktok.com/embed.js"></script>
     </blockquote>
   </div>
   <div class="overlay">Video Filming
@@ -187,7 +292,6 @@ TikTok Content</div>
 <div class="video-wrapper tiktok-wrapper">
   <div class="video">
     <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7603337849177410838" data-video-id="7603337849177410838">
-      <script async src="https://www.tiktok.com/embed.js"></script>
     </blockquote>
   </div>
   <div class="overlay">Editing + Effects</div>
@@ -197,7 +301,6 @@ TikTok Content</div>
 <div class="video-wrapper tiktok-wrapper">
   <div class="video">
     <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7585967126930803990" data-video-id="7585967126930803990">
-      <script async src="https://www.tiktok.com/embed.js"></script>
     </blockquote>
   </div>
   <div class="overlay">Filming + Posting</div>
@@ -207,7 +310,6 @@ TikTok Content</div>
 <div class="video-wrapper tiktok-wrapper">
   <div class="video">
     <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7610814341755014423" data-video-id="7610814341755014423">
-      <script async src="https://www.tiktok.com/embed.js"></script>
     </blockquote>
   </div>
   <div class="overlay">Content Editing</div>
