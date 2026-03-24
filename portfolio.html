@@ -1,50 +1,232 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Portfolio - Sara Haglund</title>
-    <style>
-        body {
-            font-family: Helvetica, sans-serif;
-            margin: 0;
-            padding: 40px;
-            text-align: center;
-            background: white;
-        }
-        h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-        }
-        .gallery img {
-            width: 300px;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-        a.back {
-            display: inline-block;
-            margin-top: 40px;
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <h1>Fashion Portfolio</h1>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
 
-    <div class="gallery">
-        <img src="fashion1.jpg" alt="Fashion 1">
-        <img src="fashion2.jpg" alt="Fashion 2">
-        <img src="fashion3.jpg" alt="Fashion 3">
-        <!-- Add more images as needed -->
+<link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-color: white;
+  --text-color: black;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* HEADER (same everywhere) */
+.header {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1000;
+  padding: 20px 40px 10px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.logo {
+  font-family: 'Gloock', serif;
+  font-size: 64px;
+  line-height: 0.9;
+  position: relative;
+}
+
+.logo::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 100vw;
+  height: 1px;
+  background: black;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.subtext {
+  font-size: 13px;
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+
+.nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+}
+
+/* TITLE */
+h1 {
+  text-align: center;
+  margin: 60px 0;
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+/* GRID LAYOUT */
+.grid {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* DIFFERENT HEIGHTS (editorial feel) */
+.item.tall {
+  grid-row: span 2;
+}
+
+.item.wide {
+  grid-column: span 2;
+}
+
+/* IMAGE */
+.item {
+  position: relative;
+  overflow: hidden;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* HOVER OVERLAY (same as homepage) */
+.item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.8);
+  opacity: 0;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+.item:hover::before {
+  opacity: 1;
+}
+
+/* TEXT ON HOVER */
+.item-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255,255,255,0.8);
+  padding: 10px 18px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  opacity: 0;
+  z-index: 2;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.item:hover .item-text {
+  opacity: 1;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+  .header {
+    padding: 15px;
+  }
+
+  .header-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo {
+    font-size: 34px;
+  }
+
+  .subtext {
+    font-size: 10px;
+  }
+
+  .nav {
+    margin-top: 10px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <div class="header-top">
+    
+    <div>
+      <div class="logo">SARA HAGLUND</div>
+      <div class="subtext">FREELANCE FASHION DESIGNER & CONTENT CREATOR</div>
     </div>
 
-    <a href="index.html" class="back">⬅ Back to Home</a>
+    <div class="nav">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="mailto:sirihaglund@gmail.com">CONTACT</a>
+    </div>
+
+  </div>
+</div>
+
+<h1>FASHION DESIGN</h1>
+
+<div class="grid">
+
+  <div class="item tall">
+    <img src="work1.jpg">
+    <div class="item-text">PROJECT NAME</div>
+  </div>
+
+  <div class="item">
+    <img src="work2.jpg">
+    <div class="item-text">PROJECT NAME</div>
+  </div>
+
+  <div class="item">
+    <img src="work3.jpg">
+    <div class="item-text">PROJECT NAME</div>
+  </div>
+
+  <div class="item wide">
+    <img src="work4.jpg">
+    <div class="item-text">PROJECT NAME</div>
+  </div>
+
+  <div class="item">
+    <img src="work5.jpg">
+    <div class="item-text">PROJECT NAME</div>
+  </div>
+
+  <div class="item tall">
+    <img src="work6.jpg">
+    <div class="item-text">PROJECT NAME</div>
+  </div>
+
+</div>
+
 </body>
 </html>
