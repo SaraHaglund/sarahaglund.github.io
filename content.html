@@ -20,32 +20,25 @@ body { font-family: Helvetica, sans-serif; margin:0; }
 h1 { text-align:center; margin:60px 0; font-size:16px; letter-spacing:2px; font-weight:500; }
 
 /* GRID */
-.grid { width:90%; max-width:1200px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; justify-items:center; }
+.grid { width:90%; max-width:1200px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; justify-items:center; padding-bottom:60px; }
 
 /* WRAPPERS */
 .video-wrapper { position:relative; width:100%; max-width:320px; }
 
-/* Instagram 9:16 ratio */
-.instagram-wrapper::before {
-  content:"";
-  display:block;
-  padding-top:177.78%;
-}
-.instagram-wrapper .video { position:absolute; top:0; left:0; width:100%; height:100%; }
+/* Instagram — no forced aspect ratio, let embed set its own height */
+.instagram-wrapper .video { width:100%; }
+.instagram-wrapper .video blockquote { width:100% !important; min-width:unset !important; }
 
-/* TikTok normal */
+/* TikTok */
 .tiktok-wrapper .video { width:100%; }
-
-/* ALL VIDEOS */
-.video iframe,
-.video blockquote { width:100% !important; height:100% !important; }
 
 /* OVERLAY */
 .overlay {
   position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-  background: rgba(255,255,255,0.8); padding:10px 18px;
+  background:rgba(255,255,255,0.8); padding:10px 18px;
   font-size:13px; letter-spacing:1px; text-align:center;
   opacity:0; transition:0.3s; z-index:2; white-space:pre-line;
+  pointer-events:none;
 }
 .video-wrapper:hover .overlay { opacity:1; }
 
@@ -85,7 +78,7 @@ h1 { text-align:center; margin:60px 0; font-size:16px; letter-spacing:2px; font-
   <div class="video">
     <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DRw-vBfAr3W/" data-instgrm-version="14"></blockquote>
   </div>
-  <div class="overlay">Video Shooting  
+  <div class="overlay">Video Shooting
 Video Editing</div>
 </div>
 
@@ -108,16 +101,20 @@ Video Editing</div>
 <!-- TikTok 1 -->
 <div class="video-wrapper tiktok-wrapper">
   <div class="video">
-    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7522856631831498006" data-video-id="7522856631831498006"></blockquote>
+    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7522856631831498006" data-video-id="7522856631831498006">
+      <script async src="https://www.tiktok.com/embed.js"></script>
+    </blockquote>
   </div>
-  <div class="overlay">Video Filming  
+  <div class="overlay">Video Filming
 TikTok Content</div>
 </div>
 
 <!-- TikTok 2 -->
 <div class="video-wrapper tiktok-wrapper">
   <div class="video">
-    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7606025948076494083" data-video-id="7606025948076494083"></blockquote>
+    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7606025948076494083" data-video-id="7606025948076494083">
+      <script async src="https://www.tiktok.com/embed.js"></script>
+    </blockquote>
   </div>
   <div class="overlay">Editing + Effects</div>
 </div>
@@ -125,7 +122,9 @@ TikTok Content</div>
 <!-- TikTok 3 -->
 <div class="video-wrapper tiktok-wrapper">
   <div class="video">
-    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7523984929827409174" data-video-id="7523984929827409174"></blockquote>
+    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7523984929827409174" data-video-id="7523984929827409174">
+      <script async src="https://www.tiktok.com/embed.js"></script>
+    </blockquote>
   </div>
   <div class="overlay">Filming + Posting</div>
 </div>
@@ -133,7 +132,9 @@ TikTok Content</div>
 <!-- TikTok 4 -->
 <div class="video-wrapper tiktok-wrapper">
   <div class="video">
-    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7594105924864757014" data-video-id="7594105924864757014"></blockquote>
+    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7594105924864757014" data-video-id="7594105924864757014">
+      <script async src="https://www.tiktok.com/embed.js"></script>
+    </blockquote>
   </div>
   <div class="overlay">Content Editing</div>
 </div>
@@ -151,7 +152,7 @@ TikTok Content</div>
   <div class="video">
     <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DVvhEPsAnkJ/" data-instgrm-version="14"></blockquote>
   </div>
-  <div class="overlay">Video Shooting  
+  <div class="overlay">Video Shooting
 Video Editing</div>
 </div>
 
@@ -174,16 +175,20 @@ Video Editing</div>
 <!-- TikTok 5 -->
 <div class="video-wrapper tiktok-wrapper">
   <div class="video">
-    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7614826229799193858" data-video-id="7614826229799193858"></blockquote>
+    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7614826229799193858" data-video-id="7614826229799193858">
+      <script async src="https://www.tiktok.com/embed.js"></script>
+    </blockquote>
   </div>
-  <div class="overlay">Video Filming  
+  <div class="overlay">Video Filming
 TikTok Content</div>
 </div>
 
 <!-- TikTok 6 -->
 <div class="video-wrapper tiktok-wrapper">
   <div class="video">
-    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7603337849177410838" data-video-id="7603337849177410838"></blockquote>
+    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7603337849177410838" data-video-id="7603337849177410838">
+      <script async src="https://www.tiktok.com/embed.js"></script>
+    </blockquote>
   </div>
   <div class="overlay">Editing + Effects</div>
 </div>
@@ -191,7 +196,9 @@ TikTok Content</div>
 <!-- TikTok 7 -->
 <div class="video-wrapper tiktok-wrapper">
   <div class="video">
-    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7585967126930803990" data-video-id="7585967126930803990"></blockquote>
+    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7585967126930803990" data-video-id="7585967126930803990">
+      <script async src="https://www.tiktok.com/embed.js"></script>
+    </blockquote>
   </div>
   <div class="overlay">Filming + Posting</div>
 </div>
@@ -199,15 +206,26 @@ TikTok Content</div>
 <!-- TikTok 8 -->
 <div class="video-wrapper tiktok-wrapper">
   <div class="video">
-    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7610814341755014423" data-video-id="7610814341755014423"></blockquote>
+    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7610814341755014423" data-video-id="7610814341755014423">
+      <script async src="https://www.tiktok.com/embed.js"></script>
+    </blockquote>
   </div>
   <div class="overlay">Content Editing</div>
 </div>
 
 </div>
 
-<script async src="//www.instagram.com/embed.js"></script>
-<script async src="https://www.tiktok.com/embed.js"></script>
+<script async src="https://www.instagram.com/embed.js"></script>
+<script>
+  window.addEventListener('load', function () {
+    var check = setInterval(function () {
+      if (window.instgrm) {
+        window.instgrm.Embeds.process();
+        clearInterval(check);
+      }
+    }, 300);
+  });
+</script>
 
 </body>
 </html>
