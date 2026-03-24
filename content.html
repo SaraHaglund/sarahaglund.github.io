@@ -4,153 +4,181 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Content</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
 
 <style>
-body {
-  font-family: Helvetica, sans-serif;
-  margin:0;
+:root {
+  --bg-color: white;
+  --text-color: black;
 }
 
-/* HEADER */
+body {
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* HEADER (same as index) */
 .header {
   position: sticky;
-  top:0;
-  background:white;
-  z-index:1000;
-  padding:20px 20px 10px;
+  top: 0;
+  background: white;
+  z-index: 1000;
+  padding: 20px 40px 10px;
 }
 
 .header-top {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .logo {
-  font-family:'Gloock', serif;
-  font-size:64px;
-  line-height:0.9;
-  position:relative;
+  font-family: 'Gloock', serif;
+  font-size: 64px;
+  line-height: 0.9;
+  position: relative;
 }
 
 .logo::after {
-  content:"";
-  position:absolute;
-  left:0;
-  top:0.55em;
-  width:100vw;
-  height:1px;
-  background:black;
-  opacity:0.5;
-  z-index:-1;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 100vw;
+  height: 1px;
+  background: black;
+  opacity: 0.5;
+  z-index: -1;
 }
 
 .subtext {
-  font-size:13px;
-  margin-top:10px;
-  letter-spacing:1px;
-}
-
-.nav {
-  display:flex;
-  gap:20px;
+  font-size: 13px;
+  margin-top: 10px;
+  letter-spacing: 1px;
 }
 
 .nav a {
-  text-decoration:none;
-  color:black;
-  font-size:14px;
-}
-
-/* MOBILE HEADER FIX */
-@media(max-width:700px){
-  .header-top {
-    flex-direction:column;
-    text-align:center;
-    gap:10px;
-  }
-
-  .nav {
-    justify-content:center;
-  }
-
-  .logo {
-    font-size:36px;
-  }
+  margin-left: 25px;
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
 }
 
 /* TITLE */
 h1 {
-  text-align:center;
-  margin:60px 20px;
-  font-size:16px;
-  letter-spacing:2px;
-  font-weight:500;
+  text-align: center;
+  margin: 60px 0;
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: 500;
 }
 
 /* GRID */
 .grid {
-  width:100%;
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-  gap:40px;
-  padding:0 20px 60px;
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 0 40px 60px;
 }
 
 /* VIDEO WRAPPER */
 .video-wrapper {
-  display:flex;
-  justify-content:center;
-  position:relative;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-/* INNER VIDEO (this is IMPORTANT) */
+/* VIDEO SIZE CONTROL */
 .video {
-  width:100%;
-  max-width:320px;
+  width: 100%;
+  max-width: 260px; /* keeps them clean + not too wide */
 }
 
-/* INSTAGRAM FIX (prevents stretch) */
+/* INSTAGRAM FIX */
 .instagram-media {
-  margin:0 auto !important;
-  width:100% !important;
-  max-width:320px !important;
-  min-width:unset !important;
+  width: 100% !important;
+  max-width: 260px !important;
+  margin: 0 auto !important;
 }
 
 /* TIKTOK FIX */
 .tiktok-embed {
-  margin:0 auto !important;
-  width:100% !important;
-  max-width:320px !important;
+  width: 100% !important;
+  max-width: 260px !important;
+  margin: 0 auto !important;
 }
 
 /* OVERLAY */
 .overlay {
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  background:rgba(255,255,255,0.85);
-  padding:10px 18px;
-  font-size:13px;
-  letter-spacing:1px;
-  text-align:center;
-  opacity:0;
-  transition:0.3s;
-  z-index:2;
-  white-space:pre-line;
-  pointer-events:none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: rgba(255,255,255,0.8);
+  padding: 10px 18px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-align: center;
+  opacity: 0;
+  transition: 0.3s;
+  z-index: 2;
+  white-space: pre-line;
+  pointer-events: none;
 }
 
 .video-wrapper:hover .overlay {
-  opacity:1;
+  opacity: 1;
 }
 
+/* TABLET */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+  .header {
+    padding: 15px;
+  }
+
+  .header-top {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 34px;
+  }
+
+  .subtext {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .nav {
+    margin-top: 10px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 🔥 2 per row */
+    gap: 20px;
+    padding: 0 15px 50px;
+  }
+
+  .video {
+    max-width: 100%; /* allow smaller scaling */
+  }
+}
 </style>
 </head>
 
@@ -175,145 +203,45 @@ h1 {
 
 <div class="grid">
 
-<!-- Instagram 1 -->
-<div class="video-wrapper instagram-wrapper">
-  <div class="video">
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DVVwkT7Amf2/" data-instgrm-version="14"></blockquote>
-  </div>
-  <div class="overlay">Filming + Editing</div>
-</div>
+<!-- INSTAGRAM -->
+<div class="video-wrapper instagram-wrapper"><div class="video"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DVVwkT7Amf2/" data-instgrm-version="14"></blockquote></div><div class="overlay">Filming + Editing</div></div>
 
-<!-- Instagram 2 -->
-<div class="video-wrapper instagram-wrapper">
-  <div class="video">
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DRw-vBfAr3W/" data-instgrm-version="14"></blockquote>
-  </div>
-  <div class="overlay">Video Shooting
-Video Editing</div>
-</div>
+<div class="video-wrapper instagram-wrapper"><div class="video"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DRw-vBfAr3W/" data-instgrm-version="14"></blockquote></div><div class="overlay">Video Shooting
+Video Editing</div></div>
 
-<!-- Instagram 3 -->
-<div class="video-wrapper instagram-wrapper">
-  <div class="video">
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DT0cKvogtar/" data-instgrm-version="14"></blockquote>
-  </div>
-  <div class="overlay">Content Creation</div>
-</div>
+<div class="video-wrapper instagram-wrapper"><div class="video"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DT0cKvogtar/" data-instgrm-version="14"></blockquote></div><div class="overlay">Content Creation</div></div>
 
-<!-- Instagram 4 -->
-<div class="video-wrapper instagram-wrapper">
-  <div class="video">
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DU-mXcbgiEa/" data-instgrm-version="14"></blockquote>
-  </div>
-  <div class="overlay">Filming + Editing</div>
-</div>
+<div class="video-wrapper instagram-wrapper"><div class="video"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DU-mXcbgiEa/" data-instgrm-version="14"></blockquote></div><div class="overlay">Filming + Editing</div></div>
 
-<!-- TikTok 1 -->
-<div class="video-wrapper tiktok-wrapper">
-  <div class="video">
-    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7522856631831498006" data-video-id="7522856631831498006">
-    </blockquote>
-  </div>
-  <div class="overlay">Video Filming
-TikTok Content</div>
-</div>
+<!-- TIKTOK -->
+<div class="video-wrapper tiktok-wrapper"><div class="video"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7522856631831498006" data-video-id="7522856631831498006"></blockquote></div><div class="overlay">Video Filming
+TikTok Content</div></div>
 
-<!-- TikTok 2 -->
-<div class="video-wrapper tiktok-wrapper">
-  <div class="video">
-    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7606025948076494083" data-video-id="7606025948076494083">
-    </blockquote>
-  </div>
-  <div class="overlay">Editing + Effects</div>
-</div>
+<div class="video-wrapper tiktok-wrapper"><div class="video"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7606025948076494083" data-video-id="7606025948076494083"></blockquote></div><div class="overlay">Editing + Effects</div></div>
 
-<!-- TikTok 3 -->
-<div class="video-wrapper tiktok-wrapper">
-  <div class="video">
-    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7523984929827409174" data-video-id="7523984929827409174">
-    </blockquote>
-  </div>
-  <div class="overlay">Filming + Posting</div>
-</div>
+<div class="video-wrapper tiktok-wrapper"><div class="video"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7523984929827409174" data-video-id="7523984929827409174"></blockquote></div><div class="overlay">Filming + Posting</div></div>
 
-<!-- TikTok 4 -->
-<div class="video-wrapper tiktok-wrapper">
-  <div class="video">
-    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7594105924864757014" data-video-id="7594105924864757014">
-    </blockquote>
-  </div>
-  <div class="overlay">Content Editing</div>
-</div>
+<div class="video-wrapper tiktok-wrapper"><div class="video"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7594105924864757014" data-video-id="7594105924864757014"></blockquote></div><div class="overlay">Content Editing</div></div>
 
-<!-- Instagram 5 -->
-<div class="video-wrapper instagram-wrapper">
-  <div class="video">
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DV59T35AoQ1/" data-instgrm-version="14"></blockquote>
-  </div>
-  <div class="overlay">Filming + Editing</div>
-</div>
+<!-- MORE INSTAGRAM -->
+<div class="video-wrapper instagram-wrapper"><div class="video"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DV59T35AoQ1/" data-instgrm-version="14"></blockquote></div><div class="overlay">Filming + Editing</div></div>
 
-<!-- Instagram 6 -->
-<div class="video-wrapper instagram-wrapper">
-  <div class="video">
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DVvhEPsAnkJ/" data-instgrm-version="14"></blockquote>
-  </div>
-  <div class="overlay">Video Shooting
-Video Editing</div>
-</div>
+<div class="video-wrapper instagram-wrapper"><div class="video"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DVvhEPsAnkJ/" data-instgrm-version="14"></blockquote></div><div class="overlay">Video Shooting
+Video Editing</div></div>
 
-<!-- Instagram 7 -->
-<div class="video-wrapper instagram-wrapper">
-  <div class="video">
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DVtZ_faAuz7/" data-instgrm-version="14"></blockquote>
-  </div>
-  <div class="overlay">Content Creation</div>
-</div>
+<div class="video-wrapper instagram-wrapper"><div class="video"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DVtZ_faAuz7/" data-instgrm-version="14"></blockquote></div><div class="overlay">Content Creation</div></div>
 
-<!-- Instagram 8 -->
-<div class="video-wrapper instagram-wrapper">
-  <div class="video">
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DVqVRwmgmFJ/" data-instgrm-version="14"></blockquote>
-  </div>
-  <div class="overlay">Filming + Editing</div>
-</div>
+<div class="video-wrapper instagram-wrapper"><div class="video"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DVqVRwmgmFJ/" data-instgrm-version="14"></blockquote></div><div class="overlay">Filming + Editing</div></div>
 
-<!-- TikTok 5 -->
-<div class="video-wrapper tiktok-wrapper">
-  <div class="video">
-    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7614826229799193858" data-video-id="7614826229799193858">
-    </blockquote>
-  </div>
-  <div class="overlay">Video Filming
-TikTok Content</div>
-</div>
+<!-- MORE TIKTOK -->
+<div class="video-wrapper tiktok-wrapper"><div class="video"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7614826229799193858" data-video-id="7614826229799193858"></blockquote></div><div class="overlay">Video Filming
+TikTok Content</div></div>
 
-<!-- TikTok 6 -->
-<div class="video-wrapper tiktok-wrapper">
-  <div class="video">
-    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7603337849177410838" data-video-id="7603337849177410838">
-    </blockquote>
-  </div>
-  <div class="overlay">Editing + Effects</div>
-</div>
+<div class="video-wrapper tiktok-wrapper"><div class="video"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7603337849177410838" data-video-id="7603337849177410838"></blockquote></div><div class="overlay">Editing + Effects</div></div>
 
-<!-- TikTok 7 -->
-<div class="video-wrapper tiktok-wrapper">
-  <div class="video">
-    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7585967126930803990" data-video-id="7585967126930803990">
-    </blockquote>
-  </div>
-  <div class="overlay">Filming + Posting</div>
-</div>
+<div class="video-wrapper tiktok-wrapper"><div class="video"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7585967126930803990" data-video-id="7585967126930803990"></blockquote></div><div class="overlay">Filming + Posting</div></div>
 
-<!-- TikTok 8 -->
-<div class="video-wrapper tiktok-wrapper">
-  <div class="video">
-    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7610814341755014423" data-video-id="7610814341755014423">
-    </blockquote>
-  </div>
-  <div class="overlay">Content Editing</div>
-</div>
+<div class="video-wrapper tiktok-wrapper"><div class="video"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@enough.headquarters/video/7610814341755014423" data-video-id="7610814341755014423"></blockquote></div><div class="overlay">Content Editing</div></div>
 
 </div>
 
