@@ -142,47 +142,33 @@ h1 {
   opacity: 1;
 }
 
-/* MOBILE */
-@media (max-width: 600px) {
-
-  .header {
-    padding: 15px;
-  }
-
-  .header-top {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 10px; /* adds spacing between logo/tagline and nav */
-  }
-
-  .logo {
-    font-size: 34px;
-  }
-
-  .subtext {
-    font-size: 12px;   /* slightly bigger than 10px for readability */
-    text-align: center;
-    line-height: 1.2;
-  }
-
-  .nav {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 20px;   /* spacing between links */
-    margin-top: 10px;
-  }
-
-  .nav a {
-    font-size: 12px;  /* smaller nav font on mobile */
-    margin-left: 0;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-    padding: 0 20px 60px;
-  }
+/* MOBILE */ 
+  @media (max-width: 600px) { 
+    .header { 
+      padding: 15px; 
+    } 
+    
+    .header-top { 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    } 
+    
+    .logo { 
+    font-size: 34px; 
+    } 
+    
+    .subtext { 
+    font-size: 10px; 
+    } 
+    
+    .nav { 
+    margin-top: 10px; 
+    } 
+    
+    .grid { 
+    grid-template-columns: 1fr; 
+    }
 }
 </style>
 </head>
