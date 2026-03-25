@@ -165,22 +165,35 @@ h1 {
     padding: 0 20px 60px;
   }
 
+  /* HEADER ADJUSTMENTS */
   .header-top {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column;       /* stack logo + nav vertically */
+    align-items: center;          /* center everything */
     text-align: center; 
+    gap: 10px;                    /* spacing between logo and nav */
   }
 
   .logo {
-    font-size: 34px;
+    font-size: 34px;              /* smaller on mobile */
   }
-  
+
   .subtext {
-  text-align: center;
-}
+    font-size: 12px;              /* smaller tagline */
+    line-height: 1.2;
+    text-align: center;           /* ensure tagline is centered */
+  }
 
   .nav {
+    width: 100%;                  /* make nav full width */
+    display: flex;
+    justify-content: center;      /* center nav links */
+    gap: 20px;                    /* spacing between links */
     margin-top: 10px;
+  }
+
+  .nav a {
+    font-size: 12px;              /* smaller nav font */
+    margin-left: 0;               /* remove left margin on mobile */
   }
 }
 </style>
