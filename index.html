@@ -3,183 +3,91 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sara Haglund</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --bg-color: white;
-  --text-color: black;
-}
-
-body {
-  font-family: Helvetica, sans-serif;
-  margin: 0;
-  background: var(--bg-color);
-  color: var(--text-color);
-}
-
-/* HEADER */
-.header {
-  position: sticky;
-  top: 0;
-  background: white;
-  z-index: 1000;
-  padding: 20px 40px 10px;
-}
-
-.header-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.logo {
-  font-family: 'Gloock', serif;
-  font-size: 64px;
-  line-height: 0.9;
-  position: relative;
-}
-
-.logo::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.55em;
-  width: 100vw;
-  height: 1px;
-  background: black;
-  opacity: 0.5;
-  z-index: -1;
-}
-
-.subtext {
-  font-size: 13px;
-  margin-top: 10px;
-  letter-spacing: 1px;
-}
-
-.nav a {
-  margin-left: 25px;
-  text-decoration: none;
-  color: black;
-  font-size: 14px;
-}
-
-/* CARDS */
-.container {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  padding: 60px 20px;
-  flex-wrap: wrap;
-}
-
-.card {
-  position: relative;
-  width: 320px;
-  aspect-ratio: 9 / 16;
-  overflow: hidden;
-}
-
-.card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* TEXT BOX (rectangle) */
-.card-overlay {
-  position: absolute;
-  top: 38%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(255,255,255,0.8);
-  padding: 12px 22px;
-  letter-spacing: 1px;
-  white-space: nowrap;
-  z-index: 2;
-}
-
-/* FULL IMAGE HOVER EFFECT */
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0.8);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1;
-}
-
-.card:hover::before {
-  opacity: 1;
-}
-
-
-
-/* MOBILE */ 
-  @media (max-width: 600px) { 
-    .header { 
-      padding: 15px; 
-    } 
-    
-    .header-top { 
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
-    } 
-    
-    .logo { 
-    font-size: 34px; 
-    } 
-    
-    .subtext { 
-    font-size: 10px; 
-    } 
-    
-    .nav { 
-    margin-top: 10px; 
-    } 
-    
-    .grid { 
-    grid-template-columns: 1fr; 
-    }
-}
-</style>
+<title>Sara Haglund | Home</title>
+<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-
-<div class="header">
-  <div class="header-top">
+<div class="bg-deco-wrap" aria-hidden="true">
+  <img class="bg-deco-img bg-deco-tr" src="media/images/pink-blue-mermor.avif" alt="">
+  <img class="bg-deco-img bg-deco-bl" src="media/images/pink-chess.jpg" alt="">
+</div>
+  <div class="header-inner">
     <div>
-      <div class="logo">SARA HAGLUND</div>
-      <div class="subtext">FREELANCE FASHION DESIGNER & CONTENT CREATOR</div>
+      <h1 class="brand-title"><a class="brand-link" href="index.html">Sara Haglund</a></h1>
+      <p class="brand-subtitle">Freelance Fashion Designer and Content Creator</p>
     </div>
-
-    <div class="nav">
-      <a href="index.html">HOME</a>
-      <a href="about.html">ABOUT</a>
-      <a href="mailto:sirihaglund@gmail.com">CONTACT</a>
-    </div>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="active" href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="content.html">Content</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </div>
-</div>
+</header>
 
-<div class="container">
+<main class="page-shell">
+  <section class="hero-layout reveal">
+    <div class="page-intro">
+      <p class="kicker">Editorial Minimal / Indie Luxe</p>
+      <h2 class="headline">Concept-led fashion visuals with a soft manga edge.</h2>
+      <p class="lead">This showcase version is built to stay easy to edit in GitHub UI. Every media block is ready for both image and video assets, and missing files still render as styled placeholders until final selections are made.</p>
+      <a class="feature-link" href="portfolio.html">View Fashion Projects</a>
+    </div>
+    <aside class="panel">
+      <h3>Saturday Demo</h3>
+      <p>Replace image and video paths directly in HTML blocks. No tooling, no build step, no setup. The look is intentionally clean, cinematic and warm with subtle illustrated framing details.</p>
+      <p class="quote">"Luxury can be quiet, playful and story-first."</p>
+    </aside>
+  </section>
 
-  <a href="portfolio.html" class="card">
-    <img src="portfolio.jpg">
-    <div class="card-overlay">FASHION DESIGN</div>
-  </a>
+  <section class="media-grid reveal" aria-label="Featured sections">
+    <article class="media-card">
+      <a href="portfolio.html" aria-label="Go to fashion design portfolio">
+        <div class="media-frame is-missing" data-kind="img">
+          <!-- Replace image path below -->
+          <img src="media/images/pink-chess.jpg" alt="Fashion design preview">
+        </div>
+      </a>
+      <div class="media-info">
+        <h3 class="media-title">Fashion Design</h3>
+        <p class="media-meta">Image Feature / Lookbook Direction</p>
+      </div>
+    </article>
 
-  <a href="content.html" class="card">
-    <img src="content.jpg">
-    <div class="card-overlay">CONTENT CREATION</div>
-  </a>
+    <article class="media-card">
+      <a href="content.html" aria-label="Go to content creation showcase">
+        <div class="media-frame is-missing" data-kind="video">
+          <!-- Replace video path below -->
+          <video muted playsinline controls poster="media/images/melted-blue.jpg">
+            <source src="media/videos/home-reel.mp4" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+        </div>
+      </a>
+      <div class="media-info">
+        <h3 class="media-title">Content Creation</h3>
+        <p class="media-meta">Video Feature / Reels and Campaign Edits</p>
+      </div>
+    </article>
 
-</div>
+    <article class="media-card">
+      <a href="about.html" aria-label="Read more about Sara Haglund">
+        <div class="media-frame is-missing" data-kind="img">
+          <!-- Replace image path below -->
+          <img src="media/images/melted-blue.jpg" alt="Portrait preview for about page">
+        </div>
+      </a>
+      <div class="media-info">
+        <h3 class="media-title">About the Studio</h3>
+        <p class="media-meta">Profile / Process and Collaborations</p>
+      </div>
+    </article>
+  </section>
 
+  <p class="footer-note">Media naming suggestion: media/images/project-name-01.jpg and media/videos/project-name-01.mp4</p>
+</main>
+
+<script src="site.js"></script>
 </body>
 </html>

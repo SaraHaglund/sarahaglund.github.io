@@ -3,176 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --bg-color: white;
-  --text-color: black;
-}
-
-body {
-  font-family: Helvetica, sans-serif;
-  margin: 0;
-  background: var(--bg-color);
-  color: var(--text-color);
-}
-
-/* HEADER (same as index) */
-.header {
-  position: sticky;
-  top: 0;
-  background: white;
-  z-index: 1000;
-  padding: 20px 40px 10px;
-}
-
-.header-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.logo {
-  font-family: 'Gloock', serif;
-  font-size: 64px;
-  line-height: 0.9;
-  position: relative;
-}
-
-.logo::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.55em;
-  width: 100vw;
-  height: 1px;
-  background: black;
-  opacity: 0.5;
-  z-index: -1;
-}
-
-.subtext {
-  font-size: 13px;
-  margin-top: 10px;
-  letter-spacing: 1px;
-}
-
-.nav a {
-  margin-left: 25px;
-  text-decoration: none;
-  color: black;
-  font-size: 14px;
-}
-
-/* ABOUT LAYOUT */
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 80px 60px;
-}
-
-.image {
-  width: 400px;
-}
-
-.image img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.text {
-  max-width: 500px;
-  text-align: left;
-  line-height: 1.6;
-  font-size: 14px;
-}
-
-/* MOBILE */
-@media (max-width: 600px) {
-
-  .header {
-    padding: 15px;
-  }
-
-  .header-top {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .logo {
-    font-size: 34px;
-  }
-
-  .subtext {
-    font-size: 10px;
-  }
-
-  .nav {
-    margin-top: 10px;
-  }
-
-  .container {
-    flex-direction: column;
-    padding: 40px 20px;
-    gap: 40px;
-  }
-
-  .image {
-    width: 100%;
-  }
-
-  .text {
-    text-align: center;
-  }
-}
-</style>
+<title>Sara Haglund | About</title>
+<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-
-<div class="header">
-  <div class="header-top">
-    
+<div class="bg-deco-wrap" aria-hidden="true">
+  <img class="bg-deco-img bg-deco-tr" src="media/images/pink-chess.jpg" alt="">
+  <img class="bg-deco-img bg-deco-bl" src="media/images/pool.avif" alt="">
+</div>
+  <div class="header-inner">
     <div>
-      <div class="logo">SARA HAGLUND</div>
-      <div class="subtext">FREELANCE FASHION DESIGNER & CONTENT CREATOR</div>
+      <h1 class="brand-title"><a class="brand-link" href="index.html">Sara Haglund</a></h1>
+      <p class="brand-subtitle">Freelance Fashion Designer and Content Creator</p>
     </div>
-
-    <div class="nav">
-      <a href="index.html">HOME</a>
-      <a href="about.html">ABOUT</a>
-      <a href="mailto:sirihaglund@gmail.com">CONTACT</a>
-    </div>
-
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a class="active" href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="content.html">Content</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </div>
-</div>
+</header>
 
-<div class="container">
+<main class="page-shell">
+  <section class="two-col reveal">
+    <article class="panel">
+      <p class="kicker">Profile</p>
+      <h2>Design, storytelling and crafted visual rhythm.</h2>
+      <p>Sara works across fashion design and digital storytelling with a focus on tactile shapes, soft contrast and directional styling. This version keeps things lightweight so updates can be made directly in GitHub UI.</p>
+      <p class="quote">From garment concept to campaign frame, each detail serves the mood.</p>
+      <a class="feature-link" href="portfolio.html">Explore Portfolio</a>
+    </article>
 
-  <div class="image">
-    <img src="your-image.jpg" alt="Sara Haglund">
-  </div>
+    <article class="media-card">
+      <div class="media-frame is-missing" data-kind="img">
+        <!-- Replace portrait image path below -->
+        <img src="media/images/melted-blue.jpg" alt="Portrait of Sara Haglund">
+      </div>
+      <div class="media-info">
+        <h3 class="media-title">Portrait and Signature</h3>
+        <p class="media-meta">Image Module / Personal Brand</p>
+      </div>
+    </article>
+  </section>
 
-  <div class="text">
-    <p>
-      Freelance fashion designer and content creator with experience in product development, design and visual storytelling.
-    </p>
+  <section class="media-grid reveal" aria-label="Process and collaboration highlights">
+    <article class="media-card">
+      <div class="media-frame wide is-missing" data-kind="video">
+        <!-- Replace process video path below -->
+        <video muted playsinline controls poster="media/images/pink-chess.jpg">
+          <source src="media/videos/about-process.mp4" type="video/mp4">
+          Your browser does not support video playback.
+        </video>
+      </div>
+      <div class="media-info">
+        <h3 class="media-title">Studio Process</h3>
+        <p class="media-meta">Video Module / Moodboard to Final Output</p>
+      </div>
+    </article>
 
-    <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua    </p>
+    <article class="panel" style="grid-column: span 4;">
+      <p class="kicker">Collaboration Focus</p>
+      <h3>Fashion labels, beauty campaigns and social-first brands.</h3>
+      <p>Edit this text block directly when client references are confirmed. Keep lines short for an editorial rhythm and clear readability on mobile.</p>
+      <a class="feature-link" href="content.html">See Content Work</a>
+    </article>
 
-    <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua    </p>
-  </div>
+    <article class="media-card">
+      <div class="media-frame is-missing" data-kind="img">
+        <!-- Replace detail image path below -->
+        <img src="media/images/pink-chess.jpg" alt="Design detail mood image">
+      </div>
+      <div class="media-info">
+        <h3 class="media-title">Material and Detail</h3>
+        <p class="media-meta">Image Module / Texture and Styling</p>
+      </div>
+    </article>
+  </section>
+</main>
 
-</div>
-
+<script src="site.js"></script>
 </body>
 </html>

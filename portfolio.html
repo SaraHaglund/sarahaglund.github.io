@@ -3,230 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --bg-color: white;
-  --text-color: black;
-}
-
-body {
-  font-family: Helvetica, sans-serif;
-  margin: 0;
-  background: var(--bg-color);
-  color: var(--text-color);
-}
-
-/* HEADER (same everywhere) */
-.header {
-  position: sticky;
-  top: 0;
-  background: white;
-  z-index: 1000;
-  padding: 20px 40px 10px;
-}
-
-.header-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.logo {
-  font-family: 'Gloock', serif;
-  font-size: 64px;
-  line-height: 0.9;
-  position: relative;
-}
-
-.logo::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.55em;
-  width: 100vw;
-  height: 1px;
-  background: black;
-  opacity: 0.5;
-  z-index: -1;
-}
-
-.subtext {
-  font-size: 13px;
-  margin-top: 10px;
-  letter-spacing: 1px;
-}
-
-.nav a {
-  margin-left: 25px;
-  text-decoration: none;
-  color: black;
-  font-size: 14px;
-}
-
-/* TITLE */
-h1 {
-  text-align: center;
-  margin: 60px 0;
-  font-size: 16px;
-  letter-spacing: 2px;
-  font-weight: 500;
-}
-
-/* GRID LAYOUT */
-.grid {
-   width: 75%;
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-/* DIFFERENT HEIGHTS (editorial feel) */
-.item.tall {
-  grid-row: span 2;
-}
-
-.item.wide {
-  grid-column: span 2;
-}
-
-/* IMAGE */
-.item {
-  position: relative;
-  overflow: hidden;
-}
-
-.item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* HOVER OVERLAY (same as homepage) */
-.item::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0.8);
-  opacity: 0;
-  transition: 0.3s;
-  z-index: 1;
-}
-
-.item:hover::before {
-  opacity: 1;
-}
-
-/* TEXT ON HOVER */
-.item-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(255,255,255,0.8);
-  padding: 10px 18px;
-  font-size: 14px;
-  letter-spacing: 1px;
-  opacity: 0;
-  z-index: 2;
-  transition: 0.3s;
-  white-space: nowrap;
-}
-
-.item:hover .item-text {
-  opacity: 1;
-}
-
-/* MOBILE */ 
-  @media (max-width: 600px) { 
-    .header { 
-      padding: 15px; 
-    } 
-    
-    .header-top { 
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
-    } 
-    
-    .logo { 
-    font-size: 34px; 
-    } 
-    
-    .subtext { 
-    font-size: 10px; 
-    } 
-    
-    .nav { 
-    margin-top: 10px; 
-    } 
-    
-    .grid { 
-    grid-template-columns: 1fr; 
-    }
-}
-</style>
+<title>Sara Haglund | Portfolio</title>
+<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-
-<div class="header">
-  <div class="header-top">
-    
+<div class="bg-deco-wrap" aria-hidden="true">
+  <img class="bg-deco-img bg-deco-tr" src="media/images/pool.avif" alt="">
+  <img class="bg-deco-img bg-deco-bl" src="media/images/pink-blue-mermor.avif" alt="">
+</div>
+  <div class="header-inner">
     <div>
-      <div class="logo">SARA HAGLUND</div>
-      <div class="subtext">FREELANCE FASHION DESIGNER & CONTENT CREATOR</div>
+      <h1 class="brand-title"><a class="brand-link" href="index.html">Sara Haglund</a></h1>
+      <p class="brand-subtitle">Freelance Fashion Designer and Content Creator</p>
     </div>
-
-    <div class="nav">
-      <a href="index.html">HOME</a>
-      <a href="about.html">ABOUT</a>
-      <a href="mailto:sirihaglund@gmail.com">CONTACT</a>
-    </div>
-
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a class="active" href="portfolio.html">Portfolio</a>
+      <a href="content.html">Content</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </div>
-</div>
+</header>
 
-<h1>FASHION DESIGN</h1>
+<main class="page-shell">
+  <section class="page-intro reveal">
+    <p class="kicker">Fashion Design</p>
+    <h2 class="headline">A gallery built for both still imagery and motion pieces.</h2>
+    <p class="lead">Use this page as the main lookbook. Replace each src path one by one when final files are selected. Every card keeps the same style language, whether it is a photo editorial, runway clip or campaign cut.</p>
+  </section>
 
-<div class="grid">
+  <section class="media-grid reveal" aria-label="Fashion project gallery">
+    <article class="media-card" style="grid-column: span 6;">
+      <div class="media-frame wide is-missing" data-kind="img">
+        <!-- Replace image path below -->
+        <img src="media/images/pink-chess.jpg" alt="Lookbook image one">
+      </div>
+      <div class="media-info">
+        <h3 class="media-title">Capsule Story 01</h3>
+        <p class="media-meta">Image / Styling and Silhouette</p>
+      </div>
+    </article>
 
-  <div class="item tall">
-    <img src="work1.jpg">
-    <div class="item-text">PROJECT NAME</div>
-  </div>
+    <article class="media-card">
+      <div class="media-frame is-missing" data-kind="video">
+        <!-- Replace video path below -->
+        <video muted playsinline controls poster="media/images/melted-blue.jpg">
+          <source src="media/videos/portfolio-motion-01.mp4" type="video/mp4">
+          Your browser does not support video playback.
+        </video>
+      </div>
+      <div class="media-info">
+        <h3 class="media-title">Motion Clip 01</h3>
+        <p class="media-meta">Video / Editorial Walkthrough</p>
+      </div>
+    </article>
 
-  <div class="item">
-    <img src="work2.jpg">
-    <div class="item-text">PROJECT NAME</div>
-  </div>
+    <article class="media-card">
+      <div class="media-frame is-missing" data-kind="img">
+        <!-- Replace image path below -->
+        <img src="media/images/pool.avif" alt="Lookbook image two">
+      </div>
+      <div class="media-info">
+        <h3 class="media-title">Capsule Story 02</h3>
+        <p class="media-meta">Image / Color and Material Study</p>
+      </div>
+    </article>
 
-  <div class="item">
-    <img src="work3.jpg">
-    <div class="item-text">PROJECT NAME</div>
-  </div>
+    <article class="media-card">
+      <div class="media-frame is-missing" data-kind="img">
+        <!-- Replace image path below -->
+        <img src="media/images/pink-blue-mermor.avif" alt="Lookbook image three">
+      </div>
+      <div class="media-info">
+        <h3 class="media-title">Capsule Story 03</h3>
+        <p class="media-meta">Image / Shape and Layering</p>
+      </div>
+    </article>
 
-  <div class="item wide">
-    <img src="work4.jpg">
-    <div class="item-text">PROJECT NAME</div>
-  </div>
+    <article class="media-card" style="grid-column: span 6;">
+      <div class="media-frame wide is-missing" data-kind="video">
+        <!-- Replace video path below -->
+        <video muted playsinline controls poster="media/images/pink-chess.jpg">
+          <source src="media/videos/portfolio-motion-02.mp4" type="video/mp4">
+          Your browser does not support video playback.
+        </video>
+      </div>
+      <div class="media-info">
+        <h3 class="media-title">Campaign Edit</h3>
+        <p class="media-meta">Video / Visual Direction and Cut</p>
+      </div>
+    </article>
+  </section>
+</main>
 
-  <div class="item">
-    <img src="work5.jpg">
-    <div class="item-text">PROJECT NAME</div>
-  </div>
-
-  <div class="item tall">
-    <img src="work6.jpg">
-    <div class="item-text">PROJECT NAME</div>
-  </div>
-
-</div>
-
+<script src="site.js"></script>
 </body>
 </html>
