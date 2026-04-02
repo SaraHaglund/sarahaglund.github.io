@@ -294,6 +294,39 @@ img, video, iframe { max-width: 100%; display: block; }
   }
 }
 /* END DESKTOP MENU LOCK */
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2%;
+  background: rgba(0, 0, 0, 0.86);
+  z-index: 5000;
+}
+
+.image-lightbox.is-open {
+  display: flex;
+}
+
+.image-lightbox img {
+  max-width: 96vw;
+  max-height: 92vh;
+  object-fit: contain;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.45);
+}
+
+.image-lightbox-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -312,5 +345,52 @@ img, video, iframe { max-width: 100%; display: block; }
   <div class="item"><img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775058843/ACCSKISS_fe6blt.png" alt="Accessories image 5"></div>
   <div class="item"><img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775058839/ACC_cv7jro.png" alt="Accessories image 6"></div>
 </div>
+<div class="image-lightbox" id="imageLightbox" aria-hidden="true">
+  <button class="image-lightbox-close" type="button" aria-label="Close image">&times;</button>
+  <img id="imageLightboxImg" src="" alt="">
+</div>
+<script>
+(function () {
+  const lightbox = document.getElementById("imageLightbox");
+  if (!lightbox) return;
+
+  const lightboxImg = document.getElementById("imageLightboxImg");
+  const closeBtn = lightbox.querySelector(".image-lightbox-close");
+
+  const openLightbox = (src, alt) => {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || "";
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeLightbox = () => {
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    lightboxImg.src = "";
+    document.body.style.overflow = "";
+  };
+
+  document.querySelectorAll(".grid .item img").forEach((img) => {
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", () => openLightbox(img.src, img.alt));
+  });
+
+  closeBtn.addEventListener("click", closeLightbox);
+
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+      closeLightbox();
+    }
+  });
+})();
+</script>
 </body>
 </html>
