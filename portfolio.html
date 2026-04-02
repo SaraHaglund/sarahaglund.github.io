@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio</title>
+<title>Fashion Design</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
 
@@ -16,23 +16,22 @@
 body {
   font-family: Helvetica, sans-serif;
   margin: 0;
-  background: var(--bg-color);
+  background: linear-gradient(140deg, #f8f5f1 0%, #eef2f5 100%);
   color: var(--text-color);
+  padding-top: 12rem;
+  box-sizing: border-box;
 }
 
-/* HEADER (same everywhere) */
-.header {
-  position: sticky;
-  top: 0;
-  background: white;
+.header { position: fixed; top: 0; left: 0; right: 0; width: 100%; background: white;
   z-index: 1000;
-  padding: 20px 40px 10px;
+  padding: 2% 3.5% 1%;
 }
 
 .header-top {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 2%;
 }
 
 .logo {
@@ -40,6 +39,16 @@ body {
   font-size: 64px;
   line-height: 0.9;
   position: relative;
+  z-index: 2;
+}
+
+.logo a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.logo a:visited {
+  color: inherit;
 }
 
 .logo::after {
@@ -51,7 +60,7 @@ body {
   height: 1px;
   background: black;
   opacity: 0.5;
-  z-index: -1;
+  z-index: 1;
 }
 
 .subtext {
@@ -60,116 +69,349 @@ body {
   letter-spacing: 1px;
 }
 
+.nav {
+  position: relative;
+  z-index: 4;
+  background: white;
+  padding: 0.2rem 0 0.2rem 0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+  max-width: 60%;
+}
+
 .nav a {
-  margin-left: 25px;
+  margin-left: 1.8vw;
   text-decoration: none;
   color: black;
   font-size: 14px;
+  white-space: nowrap;
 }
 
-/* TITLE */
-h1 {
+.nav a:visited {
+  color: black;
+}
+
+.page-title {
   text-align: center;
-  margin: 60px 0;
-  font-size: 16px;
-  letter-spacing: 2px;
+  margin: 5% 0 1%;
+  letter-spacing: 0.125rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
-/* GRID LAYOUT */
-.grid {
-   width: 75%;
-  max-width: 1100px;
+.page-subtitle {
+  text-align: center;
+  margin: 0 0 4%;
+  font-size: 0.8125rem;
+  letter-spacing: 0.0625rem;
+  color: #444;
+}
+
+.container {
+  width: min(73.75rem, 94vw);
   margin: 0 auto;
+  padding: 0 2% 7%;
+}
+
+.category-row {
   display: grid;
+  gap: 2.5%;
+  margin-bottom: 2.5%;
+}
+
+.row-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.row-3 {
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
 }
 
-/* DIFFERENT HEIGHTS (editorial feel) */
-.item.tall {
-  grid-row: span 2;
-}
-
-.item.wide {
-  grid-column: span 2;
-}
-
-/* IMAGE */
-.item {
+.card {
   position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
   overflow: hidden;
+  text-decoration: none;
+  color: inherit;
 }
 
-.item img {
+.card,
+.card:visited,
+.card:hover,
+.card:active {
+  color: black;
+  text-decoration: none;
+}
+
+.card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* HOVER OVERLAY (same as homepage) */
-.item::before {
+.card-outerwear img {
+  object-position: center;
+  transform: scale(1.08);
+  transform-origin: center;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255,255,255,0.85);
+  padding: 2% 4%;
+  letter-spacing: 0.0625rem;
+  width: max-content;
+  max-width: 92%;
+  white-space: normal;
+  overflow-wrap: break-word;
+  text-align: center;
+  box-sizing: border-box;
+  z-index: 2;
+  font-size: clamp(0.62rem, 1.05vw, 1rem);
+  opacity: 1;
+}
+
+.card::before {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(255,255,255,0.8);
   opacity: 0;
-  transition: 0.3s;
+  transition: opacity 0.3s ease;
   z-index: 1;
 }
 
-.item:hover::before {
+.card:hover::before {
   opacity: 1;
 }
 
-/* TEXT ON HOVER */
-.item-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(255,255,255,0.8);
-  padding: 10px 18px;
-  font-size: 14px;
-  letter-spacing: 1px;
-  opacity: 0;
-  z-index: 2;
-  transition: 0.3s;
-  white-space: nowrap;
+@media (max-width: 37.5em) {
+  .page-title {
+    font-size: 92%;
+  }
+
+  .card-overlay {
+    padding: 3% 5%;
+  }
+
+  .row-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .row-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-.item:hover .item-text {
-  opacity: 1;
+/* GLOBAL LINK COLOR + RESPONSIVE MEDIA SAFETY */
+a,
+a:visited,
+a:hover,
+a:active {
+  color: black;
 }
 
-/* MOBILE */ 
-  @media (max-width: 600px) { 
-    .header { 
-      padding: 15px; 
-    } 
-    
-    .header-top { 
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
-    } 
-    
-    .logo { 
-    font-size: 34px; 
-    } 
-    
-    .subtext { 
-    font-size: 10px; 
-    } 
-    
-    .nav { 
-    margin-top: 10px; 
-    } 
-    
-    .grid { 
-    grid-template-columns: 1fr; 
-    }
+img,
+video,
+iframe {
+  max-width: 100%;
+  display: block;
 }
+
+@media (max-width: 37.5em) {
+  .container,
+  .grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .card,
+  .item,
+  .video-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+    .card img,
+  .item img,
+  video {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* HEADER STABILITY */
+@media (max-width: 57.5em) {
+  .header {
+    padding: 3% 4% 2%;
+  }
+
+  .header-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav {
+    max-width: 100%;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 8px 16px;
+    padding-left: 0;
+  }
+
+  .nav a {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 57.5em) {
+  body {
+    padding-top: 14rem;
+  }
+}
+
+@media (max-width: 37.5em) {
+  body {
+    padding-top: 16rem;
+  }
+
+  .header-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    margin-top: 2%;
+    padding-left: 0;
+    gap: 2% 3%;
+  }
+
+  .nav a {
+    margin-left: 0;
+  }
+}
+
+/* MOBILE MENU LOCK */
+@media (max-width: 37.5em) {
+  .header-top {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 1% !important;
+  }
+
+  .header {
+    padding: 15px !important;
+  }
+
+  .logo {
+    font-size: 34px !important;
+  }
+
+  .subtext {
+    font-size: 10px !important;
+    margin-top: 10px !important;
+  }
+
+  .nav {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    margin-top: 2% !important;
+    padding: 0 !important;
+    gap: 1.8% !important;
+    background: white;
+    overflow: visible !important;
+  }
+
+  .nav a,
+  .nav a:visited,
+  .nav a:hover,
+  .nav a:active {
+    margin-left: 0 !important;
+    font-size: clamp(0.55rem, 2.1vw, 0.68rem) !important;
+    white-space: nowrap !important;
+    color: black !important;
+    text-decoration: none !important;
+  }
+}
+/* END MOBILE MENU LOCK */
+
+/* DESKTOP MENU LOCK */
+@media (min-width: 57.5625em) {
+  .header {
+    padding: 1.1% 2.2% 0.9% !important;
+  }
+
+  .header-top {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 0.8% !important;
+  }
+
+  .header-top > div:first-child {
+    flex: 0 1 52% !important;
+    min-width: 0 !important;
+  }
+
+  .logo {
+    font-size: clamp(2rem, 2.7vw, 3rem) !important;
+  }
+
+  .subtext {
+    font-size: clamp(0.54rem, 0.62vw, 0.72rem) !important;
+    letter-spacing: 0.035rem !important;
+    white-space: nowrap !important;
+  }
+
+  .nav {
+    flex: 0 1 48% !important;
+    width: auto !important;
+    max-width: none !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-end !important;
+    align-items: flex-start !important;
+    gap: 0.35vw !important;
+    padding: 0.1rem 0 0.1rem 0.15rem !important;
+    overflow: visible !important;
+    transform: translateX(-2.4vw) !important;
+  }
+
+  .nav a,
+  .nav a:visited,
+  .nav a:hover,
+  .nav a:active {
+    margin-left: 0 !important;
+    font-size: clamp(0.58rem, 0.7vw, 0.8rem) !important;
+    white-space: nowrap !important;
+    color: black !important;
+    text-decoration: none !important;
+  }
+}
+/* END DESKTOP MENU LOCK */
 </style>
 </head>
 
@@ -177,55 +419,59 @@ h1 {
 
 <div class="header">
   <div class="header-top">
-    
     <div>
-      <div class="logo">SARA HAGLUND</div>
+      <div class="logo"><a href="index.html">SARA HAGLUND</a></div>
       <div class="subtext">FREELANCE FASHION DESIGNER & CONTENT CREATOR</div>
     </div>
 
     <div class="nav">
       <a href="index.html">HOME</a>
+      <a href="portfolio.html">FASHION DESIGN</a>
+      <a href="content.html">CONTENT CREATION</a>
       <a href="about.html">ABOUT</a>
-      <a href="mailto:sirihaglund@gmail.com">CONTACT</a>
     </div>
-
   </div>
 </div>
 
-<h1>FASHION DESIGN</h1>
+<div class="container">
+  <div class="category-row row-4">
+    <a href="fashion-aw23.html" class="card">
+      <img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775059089/OUTDOORWAZZI_swkgcg.jpg" alt="AW23 category cover">
+      <div class="card-overlay">AW23</div>
+    </a>
 
-<div class="grid">
+    <a href="fashion-outerwear.html" class="card card-outerwear">
+      <img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775117814/AW24URBEXS_aymgnt.png" alt="Outerwear category cover">
+      <div class="card-overlay">OUTERWEAR</div>
+    </a>
 
-  <div class="item tall">
-    <img src="work1.jpg">
-    <div class="item-text">PROJECT NAME</div>
+    <a href="fashion-beach.html" class="card">
+      <img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775058961/BEACHBLUE1_lsxh7l.png" alt="Beach category cover">
+      <div class="card-overlay">BEACH</div>
+    </a>
+
+    <a href="fashion-outdoor-training.html" class="card">
+      <img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775117451/OUTDOORSET_wgpqqz.png" alt="Outdoor training category cover">
+      <div class="card-overlay">OUTDOOR TRAINING</div>
+    </a>
   </div>
 
-  <div class="item">
-    <img src="work2.jpg">
-    <div class="item-text">PROJECT NAME</div>
-  </div>
+  <div class="category-row row-3">
+    <a href="fashion-accessories.html" class="card">
+      <img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775059436/ACCKV_jvfvez.png" alt="Accessories category cover">
+      <div class="card-overlay">ACCESSORIES</div>
+    </a>
 
-  <div class="item">
-    <img src="work3.jpg">
-    <div class="item-text">PROJECT NAME</div>
-  </div>
+    <a href="fashion-tennis.html" class="card">
+      <img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775118104/PAD4_xbzhar.png" alt="Tennis category cover">
+      <div class="card-overlay">TENNIS</div>
+    </a>
 
-  <div class="item wide">
-    <img src="work4.jpg">
-    <div class="item-text">PROJECT NAME</div>
+    <a href="fashion-training.html" class="card">
+      <img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775121250/WGSN_Original_Image_20221020_143243_dpm8dh.jpg" alt="Training category cover">
+      <div class="card-overlay">TRAINING</div>
+    </a>
   </div>
-
-  <div class="item">
-    <img src="work5.jpg">
-    <div class="item-text">PROJECT NAME</div>
-  </div>
-
-  <div class="item tall">
-    <img src="work6.jpg">
-    <div class="item-text">PROJECT NAME</div>
-  </div>
-
 </div>
 
 </body>

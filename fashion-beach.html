@@ -1,18 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sara Haglund</title>
-
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Beach</title>
 <link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
-
 <style>
-:root {
-  --bg-color: white;
-  --text-color: black;
-}
-
+:root { --bg-color: white; --text-color: black; }
 body {
   font-family: Helvetica, sans-serif;
   margin: 0;
@@ -21,14 +13,7 @@ body {
   padding-top: 12rem;
   box-sizing: border-box;
 }
-
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  background: white;
+.header { position: fixed; top: 0; left: 0; right: 0; width: 100%; background: white;
   z-index: 1000;
   padding: 2% 3.5% 1%;
 }
@@ -48,12 +33,13 @@ body {
   z-index: 2;
 }
 
-.logo a,
-.logo a:visited,
-.logo a:hover,
-.logo a:active {
-  color: inherit !important;
-  text-decoration: none !important;
+.logo a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.logo a:visited {
+  color: inherit;
 }
 
 .logo::after {
@@ -86,117 +72,71 @@ body {
   max-width: 60%;
 }
 
-.nav a,
-.nav a:visited,
-.nav a:hover,
-.nav a:active {
+.nav a {
   margin-left: 1.8vw;
   text-decoration: none;
-  color: black !important;
+  color: black;
   font-size: 14px;
   white-space: nowrap;
 }
 
-.container {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-auto-rows: 1fr;
-  gap: 2%;
-  padding: 4% 3% 5%;
-  box-sizing: border-box;
+.nav a:visited {
+  color: black;
+}
+h1 { text-align: center; margin: 20px 0 24px; font-size: 18px; letter-spacing: 2px; font-weight: 400; }
+.back-link {
+  display: inline-block;
+  margin: 0 0 6px 3.5%;
+  position: relative;
+  top: -0.4rem;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: black;
+}
+.back-link:visited,
+.back-link:hover,
+.back-link:active {
+  color: black;
 }
 
-.card {
-  position: relative;
-  width: 100%;
-  height: min(62vh, 42rem);
-  aspect-ratio: auto;
+.grid {
+  width: min(1100px, 90vw);
+  margin: 0 auto 70px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: stretch;
+}
+.item {
+  flex: 1 1 240px;
+  min-width: 220px;
+  aspect-ratio: 9 / 16;
   overflow: hidden;
 }
-
-.card,
-.card:visited,
-.card:hover,
-.card:active {
-  color: black;
-  text-decoration: none;
-}
-
-.card img {
+.item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.card-overlay {
-  position: absolute;
-  top: 38%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(255,255,255,0.8);
-  padding: 12px 22px;
-  letter-spacing: 1px;
-  white-space: nowrap;
-  z-index: 2;
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0.8);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1;
-}
-
-.card:hover::before {
-  opacity: 1;
-}
-
-img,
-video,
-iframe {
-  max-width: 100%;
   display: block;
 }
-
+a, a:visited, a:hover, a:active { color: black; }
+img, video, iframe { max-width: 100%; display: block; }
+@media (max-width: 900px) {
+  .item { flex-basis: calc(50% - 10px); }
+}
 @media (max-width: 600px) {
-  .header {
-    padding: 15px;
-  }
-
-  .header-top {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .logo {
-    font-size: 34px;
-  }
-
-  .subtext {
-    font-size: 10px;
-  }
-
-  .nav {
-    margin-top: 10px;
-  }
-
-  .container {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    padding: 18px 12px 24px;
-  }
-
-  .card {
-    height: auto;
-    aspect-ratio: 9 / 16;
-  }
+  .header { padding: 15px; }
+  .header-top { flex-direction: column; align-items: center; text-align: center; }
+  .logo { font-size: 34px; }
+  .subtext { font-size: 10px; }
+  .nav { margin-top: 10px; }
+  .grid { width: 100%; max-width: 100%; }
+  .item { flex-basis: 100%; min-width: 0; aspect-ratio: auto; }
+  .item img { width: 100%; height: auto; }
 }
 
+/* HEADER STABILITY */
 @media (max-width: 920px) {
   .header {
     padding: 3% 4% 2%;
@@ -216,10 +156,7 @@ iframe {
     padding-left: 0;
   }
 
-  .nav a,
-  .nav a:visited,
-  .nav a:hover,
-  .nav a:active {
+  .nav a {
     margin-left: 0;
   }
 }
@@ -233,6 +170,25 @@ iframe {
 @media (max-width: 37.5em) {
   body {
     padding-top: 16rem;
+  }
+
+  .header-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    margin-top: 2%;
+    padding-left: 0;
+    gap: 2% 3%;
+  }
+
+  .nav a {
+    margin-left: 0;
   }
 }
 
@@ -283,7 +239,6 @@ iframe {
   }
 }
 /* END MOBILE MENU LOCK */
-
 /* DESKTOP MENU LOCK */
 @media (min-width: 57.5625em) {
   .header {
@@ -341,36 +296,23 @@ iframe {
 /* END DESKTOP MENU LOCK */
 </style>
 </head>
-
 <body>
-
-<div class="header">
-  <div class="header-top">
-    <div>
-      <div class="logo"><a href="index.html">SARA HAGLUND</a></div>
-      <div class="subtext">FREELANCE FASHION DESIGNER & CONTENT CREATOR</div>
-    </div>
-
-    <div class="nav">
-      <a href="index.html">HOME</a>
+<div class="header"><div class="header-top"><div><div class="logo"><a href="index.html">SARA HAGLUND</a></div><div class="subtext">FREELANCE FASHION DESIGNER & CONTENT CREATOR</div></div><div class="nav"><a href="index.html">HOME</a>
       <a href="portfolio.html">FASHION DESIGN</a>
       <a href="content.html">CONTENT CREATION</a>
-      <a href="about.html">ABOUT</a>
-    </div>
-  </div>
+      <a href="about.html">ABOUT</a></div></div></div>
+<a class="back-link" href="portfolio.html">← BACK TO FASHION DESIGN</a>
+<h1>BEACH</h1>
+<div class="grid">
+  <div class="item"><img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775058961/BEACHBLUE1_lsxh7l.png" alt="Beach cover image"></div>
+  <div class="item"><img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775058942/BEACHSIMISKISS_qge2ye.png" alt="Beach image 1"></div>
+  <div class="item"><img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775058966/BEACHZIG1_yaduuf.png" alt="Beach image 2"></div>
+  <div class="item"><img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775058971/BEACHSS24_lamcmb.png" alt="Beach image 3"></div>
+  <div class="item"><img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775058956/BEACHZIG2_urkiz5.png" alt="Beach image 4"></div>
+  <div class="item"><img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775058951/BEACHZIG3_t4hynz.png" alt="Beach image 5"></div>
+  <div class="item"><img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775058948/BEACHBLUE22_l0twwf.png" alt="Beach image 6"></div>
+  <div class="item"><img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775058937/BEACHWH_js9obs.png" alt="Beach image 7"></div>
+  <div class="item"><img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775058933/BEACHSWIMS_i3a1df.png" alt="Beach image 8"></div>
 </div>
-
-<div class="container">
-  <a href="portfolio.html" class="card">
-    <img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775121250/WGSN_Original_Image_20221020_143243_dpm8dh.jpg" alt="Fashion design cover">
-    <div class="card-overlay">FASHION DESIGN</div>
-  </a>
-
-  <a href="content.html" class="card">
-    <img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775121263/jeslerm_jeslerm5_k8nhox.jpg" alt="Content creation cover">
-    <div class="card-overlay">CONTENT CREATION</div>
-  </a>
-</div>
-
 </body>
 </html>

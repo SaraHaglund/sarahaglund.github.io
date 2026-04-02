@@ -16,23 +16,23 @@
 body {
   font-family: Helvetica, sans-serif;
   margin: 0;
-  background: var(--bg-color);
+  background: linear-gradient(140deg, #f8f5f1 0%, #eef2f5 100%);
   color: var(--text-color);
+  padding-top: 12rem;
+  box-sizing: border-box;
 }
 
 /* HEADER */
-.header {
-  position: sticky;
-  top: 0;
-  background: white;
+.header { position: fixed; top: 0; left: 0; right: 0; width: 100%; background: white;
   z-index: 1000;
-  padding: 20px 40px 10px;
+  padding: 2% 3.5% 1%;
 }
 
 .header-top {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 2%;
 }
 
 .logo {
@@ -40,6 +40,16 @@ body {
   font-size: 64px;
   line-height: 0.9;
   position: relative;
+  z-index: 2;
+}
+
+.logo a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.logo a:visited {
+  color: inherit;
 }
 
 .logo::after {
@@ -51,7 +61,7 @@ body {
   height: 1px;
   background: black;
   opacity: 0.5;
-  z-index: -1;
+  z-index: 1;
 }
 
 .subtext {
@@ -60,17 +70,34 @@ body {
   letter-spacing: 1px;
 }
 
+.nav {
+  position: relative;
+  z-index: 4;
+  background: white;
+  padding: 0.2rem 0 0.2rem 0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+  max-width: 60%;
+}
+
 .nav a {
-  margin-left: 25px;
+  margin-left: 1.8vw;
   text-decoration: none;
   color: black;
   font-size: 14px;
+  white-space: nowrap;
+}
+
+.nav a:visited {
+  color: black;
 }
 
 /* TITLE */
 h1 {
   text-align: center;
-  margin: 60px 0;
+  margin: 5% 0 3%;
   font-size: 16px;
   letter-spacing: 2px;
   font-weight: 500;
@@ -78,25 +105,28 @@ h1 {
 
 /* GRID */
 .grid {
-  max-width: 1200px;
-  margin: auto;
+  width: min(95vw, 1400px);
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  padding: 0 40px 80px;
+  gap: 3%;
+  padding: 0 3% 8%;
   justify-items: center;
+  box-sizing: border-box;
 }
 
 /* VIDEO WRAPPER */
 .video-wrapper {
   position: relative;
   width: 100%;
-  max-width: 260px;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
 }
 
 /* BASE VIDEO */
 .video {
   width: 100%;
+  height: 100%;
 }
 
 /* INSTAGRAM (force correct ratio) */
@@ -110,6 +140,7 @@ h1 {
   height: 100% !important;
   min-width: unset !important;
   margin: 0 !important;
+  transform: scale(1);
 }
 
 /* TIKTOK (let it render freely) */
@@ -119,13 +150,15 @@ h1 {
 }
   
 .tiktok-wrapper iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  display: block !important;
 }
   
 .tiktok-embed {
   width: 100% !important;
+  height: 100% !important;
   margin: 0 !important;
 }
 
@@ -151,10 +184,17 @@ h1 {
   opacity: 1;
 }
 
-/* TABLET */
+/* TABLET & MOBILE */ 
 @media (max-width: 900px) {
   .grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2%;
+    padding: 0 2% 6%;
+  }
+  
+  h1 {
+    margin: 4% 0 2%;
+    font-size: 14px;
   }
 }
 
@@ -183,9 +223,212 @@ h1 {
     } 
     
     .grid { 
-    grid-template-columns: 1fr; 
+    grid-template-columns: repeat(3, 1fr); 
     }
 }
+
+/* GLOBAL LINK COLOR + RESPONSIVE MEDIA SAFETY */
+a,
+a:visited,
+a:hover,
+a:active {
+  color: black;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .container,
+  .grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .card,
+  .item,
+  .video-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+    .card img,
+  .item img,
+  video {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* HEADER STABILITY */
+@media (max-width: 920px) {
+  .header {
+    padding: 3% 4% 2%;
+  }
+
+  .header-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav {
+    max-width: 100%;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 8px 16px;
+    padding-left: 0;
+  }
+
+  .nav a {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 57.5em) {
+  body {
+    padding-top: 14rem;
+  }
+}
+
+@media (max-width: 37.5em) {
+  body {
+    padding-top: 16rem;
+  }
+
+  .header-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    margin-top: 2%;
+    padding-left: 0;
+    gap: 2% 3%;
+  }
+
+  .nav a {
+    margin-left: 0;
+  }
+}
+
+/* MOBILE MENU LOCK */
+@media (max-width: 37.5em) {
+  .header-top {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 1% !important;
+  }
+
+  .header {
+    padding: 15px !important;
+  }
+
+  .logo {
+    font-size: 34px !important;
+  }
+
+  .subtext {
+    font-size: 10px !important;
+    margin-top: 10px !important;
+  }
+
+  .nav {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    margin-top: 2% !important;
+    padding: 0 !important;
+    gap: 1.8% !important;
+    background: white;
+    overflow: visible !important;
+  }
+
+  .nav a,
+  .nav a:visited,
+  .nav a:hover,
+  .nav a:active {
+    margin-left: 0 !important;
+    font-size: clamp(0.55rem, 2.1vw, 0.68rem) !important;
+    white-space: nowrap !important;
+    color: black !important;
+    text-decoration: none !important;
+  }
+}
+/* END MOBILE MENU LOCK */
+/* DESKTOP MENU LOCK */
+@media (min-width: 57.5625em) {
+  .header {
+    padding: 1.1% 2.2% 0.9% !important;
+  }
+
+  .header-top {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 0.8% !important;
+  }
+
+  .header-top > div:first-child {
+    flex: 0 1 52% !important;
+    min-width: 0 !important;
+  }
+
+  .logo {
+    font-size: clamp(2rem, 2.7vw, 3rem) !important;
+  }
+
+  .subtext {
+    font-size: clamp(0.54rem, 0.62vw, 0.72rem) !important;
+    letter-spacing: 0.035rem !important;
+    white-space: nowrap !important;
+  }
+
+  .nav {
+    flex: 0 1 48% !important;
+    width: auto !important;
+    max-width: none !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-end !important;
+    align-items: flex-start !important;
+    gap: 0.35vw !important;
+    padding: 0.1rem 0 0.1rem 0.15rem !important;
+    overflow: visible !important;
+    transform: translateX(-2.4vw) !important;
+  }
+
+  .nav a,
+  .nav a:visited,
+  .nav a:hover,
+  .nav a:active {
+    margin-left: 0 !important;
+    font-size: clamp(0.58rem, 0.7vw, 0.8rem) !important;
+    white-space: nowrap !important;
+    color: black !important;
+    text-decoration: none !important;
+  }
+}
+/* END DESKTOP MENU LOCK */
 </style>
 </head>
 
@@ -194,14 +437,15 @@ h1 {
 <div class="header">
   <div class="header-top">
     <div>
-      <div class="logo">SARA HAGLUND</div>
+      <div class="logo"><a href="index.html">SARA HAGLUND</a></div>
       <div class="subtext">FREELANCE FASHION DESIGNER & CONTENT CREATOR</div>
     </div>
 
     <div class="nav">
       <a href="index.html">HOME</a>
+      <a href="portfolio.html">FASHION DESIGN</a>
+      <a href="content.html">CONTENT CREATION</a>
       <a href="about.html">ABOUT</a>
-      <a href="mailto:sirihaglund@gmail.com">CONTACT</a>
     </div>
   </div>
 </div>
