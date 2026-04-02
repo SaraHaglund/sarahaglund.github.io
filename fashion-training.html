@@ -1,18 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About</title>
-
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Training</title>
 <link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
-
 <style>
-:root {
-  --bg-color: white;
-  --text-color: black;
-}
-
+:root { --bg-color: white; --text-color: black; }
 body {
   font-family: Helvetica, sans-serif;
   margin: 0;
@@ -21,8 +13,6 @@ body {
   padding-top: 12rem;
   box-sizing: border-box;
 }
-
-/* HEADER (same as index) */
 .header { position: fixed; top: 0; left: 0; right: 0; width: 100%; background: white;
   z-index: 1000;
   padding: 2% 3.5% 1%;
@@ -93,122 +83,57 @@ body {
 .nav a:visited {
   color: black;
 }
-
-/* ABOUT LAYOUT */
-.container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 5%;
-  padding: 8% 6%;
-  max-width: 1200px;
-  margin: 0 auto;
+h1 { text-align: center; margin: 20px 0 24px; font-size: 18px; letter-spacing: 2px; font-weight: 400; }
+.back-link {
+  display: inline-block;
+  margin: 0 0 6px 3.5%;
+  position: relative;
+  top: -0.4rem;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: black;
 }
-
-.image {
-  width: 35%;
-  flex-shrink: 0;
-  order: -1;
-}
-
-.image img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.text {
-  width: 50%;
-  text-align: left;
-  line-height: 1.6;
-  font-size: 14px;
-}
-
-/* MOBILE */
-@media (max-width: 600px) {
-
-  .header {
-    padding: 15px;
-  }
-
-  .header-top {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .logo {
-    font-size: 34px;
-  }
-
-  .subtext {
-    font-size: 10px;
-  }
-
-  .nav {
-    margin-top: 10px;
-  }
-
-  .container {
-    flex-direction: row;
-    padding: 5% 4%;
-    gap: 4%;
-  }
-
-  .image {
-    width: 35%;
-    order: -1;
-  }
-
-  .text {
-    width: 60%;
-    text-align: left;
-    font-size: 12px;
-  }
-}
-
-/* GLOBAL LINK COLOR + RESPONSIVE MEDIA SAFETY */
-a,
-a:visited,
-a:hover,
-a:active {
+.back-link:visited,
+.back-link:hover,
+.back-link:active {
   color: black;
 }
 
-img,
-video,
-iframe {
-  max-width: 100%;
+.grid {
+  width: min(1100px, 90vw);
+  margin: 0 auto 70px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: stretch;
+}
+.item {
+  flex: 1 1 240px;
+  min-width: 220px;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+}
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
-
+a, a:visited, a:hover, a:active { color: black; }
+img, video, iframe { max-width: 100%; display: block; }
+@media (max-width: 900px) {
+  .item { flex-basis: calc(50% - 10px); }
+}
 @media (max-width: 600px) {
-  .container,
-  .grid {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box;
-    overflow-x: hidden;
-  }
-
-  .card,
-  .item,
-  .video-wrapper {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-    .card img,
-  .item img,
-  video {
-    width: 100% !important;
-    height: auto !important;
-  }
-
-  iframe {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
+  .header { padding: 15px; }
+  .header-top { flex-direction: column; align-items: center; text-align: center; }
+  .logo { font-size: 34px; }
+  .subtext { font-size: 10px; }
+  .nav { margin-top: 10px; }
+  .grid { width: 100%; max-width: 100%; }
+  .item { flex-basis: 100%; min-width: 0; aspect-ratio: auto; }
+  .item img { width: 100%; height: auto; }
 }
 
 /* HEADER STABILITY */
@@ -369,53 +294,98 @@ iframe {
   }
 }
 /* END DESKTOP MENU LOCK */
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2%;
+  background: rgba(0, 0, 0, 0.86);
+  z-index: 5000;
+}
+
+.image-lightbox.is-open {
+  display: flex;
+}
+
+.image-lightbox img {
+  max-width: 96vw;
+  max-height: 92vh;
+  object-fit: contain;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.45);
+}
+
+.image-lightbox-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
 </style>
 </head>
-
 <body>
-
-<div class="header">
-  <div class="header-top">
-    
-    <div>
-      <div class="logo"><a href="index.html">SARA HAGLUND</a></div>
-      <div class="subtext">FREELANCE FASHION DESIGNER & CONTENT CREATOR</div>
-    </div>
-
-    <div class="nav">
-      <a href="index.html">HOME</a>
+<div class="header"><div class="header-top"><div><div class="logo"><a href="index.html">SARA HAGLUND</a></div><div class="subtext">FREELANCE FASHION DESIGNER & CONTENT CREATOR</div></div><div class="nav"><a href="index.html">HOME</a>
       <a href="portfolio.html">FASHION DESIGN</a>
       <a href="content.html">CONTENT CREATION</a>
-      <a href="about.html">ABOUT</a>
-    </div>
-
-  </div>
+      <a href="about.html">ABOUT</a></div></div></div>
+<a class="back-link" href="portfolio.html">← BACK TO FASHION DESIGN</a>
+<h1>TRAINING</h1>
+<p class="note">More images will be added soon.</p>
+<div class="grid">
+  <div class="item"><img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775121250/WGSN_Original_Image_20221020_143243_dpm8dh.jpg" alt="Training placeholder image"></div>
 </div>
-
-<div class="container">
-
-  <div class="image">
-    <img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775123852/SaraHaglund2_w6hht9.jpg" alt="Sara Haglund">
-  </div>
-
-  <div class="text">
-    <p>
-      Freelance fashion designer and content creator with experience in product development, design and visual storytelling.
-    </p>
-
-    <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua    </p>
-
-    <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua    </p>
-
-    <p style="margin-top: 20px;">
-      <strong>Contact me</strong><br>
-      sirihaglund@gmail.com
-    </p>
-  </div>
-
+<div class="image-lightbox" id="imageLightbox" aria-hidden="true">
+  <button class="image-lightbox-close" type="button" aria-label="Close image">&times;</button>
+  <img id="imageLightboxImg" src="" alt="">
 </div>
+<script>
+(function () {
+  const lightbox = document.getElementById("imageLightbox");
+  if (!lightbox) return;
 
+  const lightboxImg = document.getElementById("imageLightboxImg");
+  const closeBtn = lightbox.querySelector(".image-lightbox-close");
+
+  const openLightbox = (src, alt) => {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || "";
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeLightbox = () => {
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    lightboxImg.src = "";
+    document.body.style.overflow = "";
+  };
+
+  document.querySelectorAll(".grid .item img").forEach((img) => {
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", () => openLightbox(img.src, img.alt));
+  });
+
+  closeBtn.addEventListener("click", closeLightbox);
+
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+      closeLightbox();
+    }
+  });
+})();
+</script>
 </body>
 </html>
