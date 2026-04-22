@@ -3,87 +3,11 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Accessories</title>
 <link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
-:root { --bg-color: white; --text-color: black; }
-body {
-  font-family: Helvetica, sans-serif;
-  margin: 0;
-  background: linear-gradient(140deg, #f8f5f1 0%, #eef2f5 100%);
-  color: var(--text-color);
-  padding-top: 12rem;
-  box-sizing: border-box;
-}
-.header { position: fixed; top: 0; left: 0; right: 0; width: 100%; background: white;
-  z-index: 1000;
-  padding: 2% 3.5% 1%;
-}
-
-.header-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 2%;
-}
-
-.logo {
-  font-family: 'Gloock', serif;
-  font-size: 64px;
-  line-height: 0.9;
-  position: relative;
-  z-index: 2;
-}
-
-.logo a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.logo a:visited {
-  color: inherit;
-}
-
-.logo::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.55em;
-  width: 100vw;
-  height: 1px;
-  background: black;
-  opacity: 0.5;
-  z-index: 1;
-}
-
-.subtext {
-  font-size: 13px;
-  margin-top: 10px;
-  letter-spacing: 1px;
-}
-
-.nav {
-  position: relative;
-  z-index: 4;
-  background: white;
-  padding: 0.2rem 0 0.2rem 0.6rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: flex-start;
-  max-width: 60%;
-}
-
-.nav a {
-  margin-left: 1.8vw;
-  text-decoration: none;
-  color: black;
-  font-size: 14px;
-  white-space: nowrap;
-}
-
-.nav a:visited {
-  color: black;
-}
+/* PAGE-SPECIFIC */
 h1 { text-align: center; margin: 20px 0 24px; font-size: 18px; letter-spacing: 2px; font-weight: 400; }
+.page-description { text-align: center; margin: 0 0 24px; font-size: 12px; letter-spacing: 1px; color: #666; }
 .back-link {
   display: inline-block;
   margin: 0 0 6px 3.5%;
@@ -117,183 +41,19 @@ h1 { text-align: center; margin: 20px 0 24px; font-size: 18px; letter-spacing: 2
 .item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: left top;
   display: block;
 }
-a, a:visited, a:hover, a:active { color: black; }
-img, video, iframe { max-width: 100%; display: block; }
 @media (max-width: 900px) {
   .item { flex-basis: calc(50% - 10px); }
 }
 @media (max-width: 600px) {
-  .header { padding: 15px; }
-  .header-top { flex-direction: column; align-items: center; text-align: center; }
-  .logo { font-size: 34px; }
-  .subtext { font-size: 10px; }
-  .nav { margin-top: 10px; }
   .grid { width: 100%; max-width: 100%; }
   .item { flex-basis: 100%; min-width: 0; aspect-ratio: auto; }
   .item img { width: 100%; height: auto; }
 }
 
-/* HEADER STABILITY */
-@media (max-width: 920px) {
-  .header {
-    padding: 3% 4% 2%;
-  }
-
-  .header-top {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .nav {
-    max-width: 100%;
-    width: 100%;
-    justify-content: flex-start;
-    gap: 8px 16px;
-    padding-left: 0;
-  }
-
-  .nav a {
-    margin-left: 0;
-  }
-}
-
-@media (max-width: 57.5em) {
-  body {
-    padding-top: 14rem;
-  }
-}
-
-@media (max-width: 37.5em) {
-  body {
-    padding-top: 16rem;
-  }
-
-  .header-top {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .nav {
-    width: 100%;
-    max-width: 100%;
-    justify-content: center;
-    margin-top: 2%;
-    padding-left: 0;
-    gap: 2% 3%;
-  }
-
-  .nav a {
-    margin-left: 0;
-  }
-}
-
-/* MOBILE MENU LOCK */
-@media (max-width: 37.5em) {
-  .header-top {
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    gap: 1% !important;
-  }
-
-  .header {
-    padding: 15px !important;
-  }
-
-  .logo {
-    font-size: 34px !important;
-  }
-
-  .subtext {
-    font-size: 10px !important;
-    margin-top: 10px !important;
-  }
-
-  .nav {
-    width: 100% !important;
-    max-width: 100% !important;
-    justify-content: center !important;
-    align-items: center !important;
-    flex-wrap: nowrap !important;
-    margin-top: 2% !important;
-    padding: 0 !important;
-    gap: 1.8% !important;
-    background: white;
-    overflow: visible !important;
-  }
-
-  .nav a,
-  .nav a:visited,
-  .nav a:hover,
-  .nav a:active {
-    margin-left: 0 !important;
-    font-size: clamp(0.55rem, 2.1vw, 0.68rem) !important;
-    white-space: nowrap !important;
-    color: black !important;
-    text-decoration: none !important;
-  }
-}
-/* END MOBILE MENU LOCK */
-/* DESKTOP MENU LOCK */
-@media (min-width: 57.5625em) {
-  .header {
-    padding: 1.1% 2.2% 0.9% !important;
-  }
-
-  .header-top {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: flex-start !important;
-    gap: 0.8% !important;
-  }
-
-  .header-top > div:first-child {
-    flex: 0 1 52% !important;
-    min-width: 0 !important;
-  }
-
-  .logo {
-    font-size: clamp(2rem, 2.7vw, 3rem) !important;
-  }
-
-  .subtext {
-    font-size: clamp(0.54rem, 0.62vw, 0.72rem) !important;
-    letter-spacing: 0.035rem !important;
-    white-space: nowrap !important;
-  }
-
-  .nav {
-    flex: 0 1 48% !important;
-    width: auto !important;
-    max-width: none !important;
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    justify-content: flex-end !important;
-    align-items: flex-start !important;
-    gap: 0.35vw !important;
-    padding: 0.1rem 0 0.1rem 0.15rem !important;
-    overflow: visible !important;
-    transform: translateX(-2.4vw) !important;
-  }
-
-  .nav a,
-  .nav a:visited,
-  .nav a:hover,
-  .nav a:active {
-    margin-left: 0 !important;
-    font-size: clamp(0.58rem, 0.7vw, 0.8rem) !important;
-    white-space: nowrap !important;
-    color: black !important;
-    text-decoration: none !important;
-  }
-}
-/* END DESKTOP MENU LOCK */
 .image-lightbox {
   position: fixed;
   inset: 0;
@@ -336,6 +96,7 @@ img, video, iframe { max-width: 100%; display: block; }
       <a href="about.html">ABOUT</a></div></div></div>
 <a class="back-link" href="portfolio.html">← BACK TO FASHION DESIGN</a>
 <h1>ACCESSORIES</h1>
+<p class="page-description">Complementary accessories to elevate any outfit.</p>
 <div class="grid">
   <div class="item"><img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775059436/ACCKV_jvfvez.png" alt="Accessories cover image"></div>
   <div class="item"><img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775059435/ACCKEP_dfrin8.png" alt="Accessories image 1"></div>
@@ -343,7 +104,6 @@ img, video, iframe { max-width: 100%; display: block; }
   <div class="item"><img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775058852/ACCVEST_gnkmsp.png" alt="Accessories image 3"></div>
   <div class="item"><img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775058849/SS24HAT_wszibd.png" alt="Accessories image 4"></div>
   <div class="item"><img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775058843/ACCSKISS_fe6blt.png" alt="Accessories image 5"></div>
-  <div class="item"><img src="https://res.cloudinary.com/dbkxtw3hq/image/upload/v1775058839/ACC_cv7jro.png" alt="Accessories image 6"></div>
 </div>
 <div class="image-lightbox" id="imageLightbox" aria-hidden="true">
   <button class="image-lightbox-close" type="button" aria-label="Close image">&times;</button>
