@@ -1,18 +1,40 @@
 /* ============================================
    SHARED DESIGN SYSTEM – Sara Haglund
+   Cross-browser compatible (Chrome, Safari, Firefox, Edge)
    ============================================ */
 
+/* ---- CSS RESET / NORMALIZE ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+img, video, iframe, embed, object {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---- CSS VARIABLES ---- */
 :root {
   --bg-color: white;
   --text-color: black;
-  --page-gutter-desktop: clamp(2rem, 4vw, 5rem);
+  --page-gutter-desktop: 0.5rem;
   --content-max-width: 78rem;
-  --header-padding: clamp(0.7rem, 1.5vw, 1.5rem) var(--page-gutter-desktop) clamp(0.5rem, 1vw, 0.9rem);
+  --header-padding: clamp(0.8rem, 1.2vw, 1.2rem) var(--page-gutter-desktop) clamp(0.6rem, 1vw, 1rem);
   --logo-font-size: clamp(2rem, 3vw, 3rem);
   --subtext-font-size: clamp(0.5rem, 0.7vw, 0.75rem);
   --nav-font-size: clamp(0.65rem, 0.85vw, 0.9rem);
   --page-title-font-size: clamp(1rem, 1.2vw, 1.2rem);
-  --body-padding-top: clamp(10rem, 15vw, 12rem);
+  --body-padding-top: clamp(4.5rem, 6vw, 5rem);
 }
 
 /* ---- BASE ---- */
@@ -21,12 +43,16 @@ html {
 }
 
 body {
-  font-family: Helvetica, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   margin: 0;
   background: linear-gradient(140deg, #f8f5f1 0%, #eef2f5 100%);
+  background: -webkit-linear-gradient(140deg, #f8f5f1 0%, #eef2f5 100%);
   color: var(--text-color);
   padding-top: var(--body-padding-top);
   box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ---- HEADER ---- */
@@ -42,12 +68,15 @@ body {
 }
 
 .header-top {
+  display: -webkit-flex;
   display: flex;
+  -webkit-justify-content: space-between;
   justify-content: space-between;
+  -webkit-align-items: flex-start;
   align-items: flex-start;
   gap: clamp(0.5rem, 2vw, 1.5rem);
-  max-width: var(--content-max-width);
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* ---- LOGO ---- */
@@ -92,12 +121,15 @@ body {
   position: relative;
   z-index: 4;
   background: white;
-  padding: 0.2rem 0 0.2rem 0.6rem;
+  padding: 0.2rem 0;
+  display: -webkit-flex;
   display: flex;
-  flex-wrap: wrap;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: flex-end;
   justify-content: flex-end;
+  -webkit-align-items: flex-start;
   align-items: flex-start;
-  max-width: 60%;
 }
 
 .nav a {
@@ -113,19 +145,12 @@ body {
   color: black;
 }
 
-/* ---- GLOBAL LINK + MEDIA SAFETY ---- */
+/* ---- GLOBAL LINK STYLES ---- */
 a,
 a:visited,
 a:hover,
 a:active {
   color: black;
-}
-
-img,
-video,
-iframe {
-  max-width: 100%;
-  display: block;
 }
 
 /* ---- MOBILE: logo line edge-to-edge ---- */
@@ -139,19 +164,19 @@ iframe {
 /* ---- HEADER STABILITY (tablet) ---- */
 @media (max-width: 920px) {
   .header {
-    padding: 3% 4% 2%;
+    padding: 1.6% 1rem 1.2%;
   }
 
   .header-top {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 6px;
   }
 
   .nav {
-    max-width: 100%;
     width: 100%;
     justify-content: flex-start;
+    flex-wrap: wrap;
     gap: 8px 16px;
     padding-left: 0;
   }
@@ -164,13 +189,13 @@ iframe {
 /* ---- BODY PADDING ADJUSTMENTS ---- */
 @media (max-width: 57.5em) {
   body {
-    padding-top: 14rem;
+    padding-top: 5.5rem;
   }
 }
 
 @media (max-width: 37.5em) {
   body {
-    padding-top: 16rem;
+    padding-top: 7.5rem;
   }
 
   .header-top {
@@ -203,7 +228,7 @@ iframe {
   }
 
   .header {
-    padding: 15px !important;
+    padding: 12px 16px !important;
   }
 
   .logo {
@@ -217,7 +242,6 @@ iframe {
 
   .nav {
     width: 100% !important;
-    max-width: 100% !important;
     justify-content: center !important;
     align-items: center !important;
     flex-wrap: nowrap !important;
@@ -225,7 +249,6 @@ iframe {
     padding: 0 !important;
     gap: 1.8% !important;
     background: white;
-    overflow: visible !important;
   }
 
   .nav a,
@@ -243,7 +266,7 @@ iframe {
 /* ---- DESKTOP MENU LOCK ---- */
 @media (min-width: 57.5625em) {
   .header {
-    padding: 1.1% 2.2% 0.9% !important;
+    padding: 0.8% 1% 0.6% !important;
   }
 
   .header-top {
@@ -252,10 +275,12 @@ iframe {
     justify-content: space-between !important;
     align-items: flex-start !important;
     gap: 0.8% !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   .header-top > div:first-child {
-    flex: 0 1 52% !important;
+    flex: 0 1 auto !important;
     min-width: 0 !important;
   }
 
@@ -270,7 +295,7 @@ iframe {
   }
 
   .nav {
-    flex: 0 1 48% !important;
+    flex: 0 1 auto !important;
     width: auto !important;
     max-width: none !important;
     display: flex !important;
@@ -280,7 +305,7 @@ iframe {
     gap: 0.35vw !important;
     padding: 0.1rem 0 0.1rem 0.15rem !important;
     overflow: visible !important;
-    transform: translateX(-2.4vw) !important;
+    transform: none !important;
   }
 
   .nav a,
