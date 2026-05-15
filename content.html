@@ -29,68 +29,93 @@ h1 {
   box-sizing: border-box;
 }
 
+.video-card {
+  width: 100%;
+}
+
 .video-wrapper {
   position: relative;
   width: 100%;
   aspect-ratio: 9 / 16;
   overflow: hidden;
+  background: #000;
+  cursor: pointer;
 }
 
-.video {
+.video-wrapper video {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.instagram-wrapper .video {
-  aspect-ratio: 9 / 16;
-  overflow: hidden;
-}
-
-.instagram-media {
-  width: 100% !important;
-  height: 100% !important;
-  min-width: unset !important;
-  margin: 0 !important;
-  transform: scale(1);
-}
-
-.tiktok-wrapper .video {
-  aspect-ratio: 9 / 16;
-  overflow: hidden;
-}
-
-.tiktok-wrapper iframe {
-  width: 100% !important;
-  height: 100% !important;
-  border: none !important;
-  display: block !important;
-}
-
-.tiktok-embed {
-  width: 100% !important;
-  height: 100% !important;
-  margin: 0 !important;
-}
-
-.overlay {
+.play-btn {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
-  background: rgba(255,255,255,0.8);
-  padding: 10px 18px;
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-align: center;
-  opacity: 0;
-  transition: 0.3s;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.2s;
   z-index: 2;
-  white-space: pre-line;
+}
+
+.play-btn:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.play-btn svg {
+  width: 24px;
+  height: 24px;
+  margin-left: 3px;
+}
+
+.video-wrapper.playing .play-btn {
+  opacity: 0;
   pointer-events: none;
 }
 
-.video-wrapper:hover .overlay {
-  opacity: 1;
+.video-wrapper.playing:hover .play-btn {
+  opacity: 0.7;
+  pointer-events: auto;
+}
+
+.video-links {
+  display: flex;
+  gap: 10px;
+  padding: 8px 0;
+  flex-wrap: wrap;
+}
+
+.video-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  color: #333;
+  padding: 4px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.video-links a:hover {
+  border-color: #333;
+  color: #000;
+}
+
+.video-links a svg {
+  width: 14px;
+  height: 14px;
 }
 
 @media (max-width: 900px) {
@@ -104,6 +129,16 @@ h1 {
     margin: 4% 0 2%;
     font-size: 14px;
   }
+
+  .play-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .play-btn svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -113,31 +148,24 @@ h1 {
     padding: clamp(1rem, 3vw, 1.5rem) clamp(0.75rem, 3vw, 1rem) clamp(1.5rem, 4vw, 2rem);
   }
 
-  .container,
-  .grid {
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box;
-    overflow-x: hidden;
-  }
-
-  .card,
-  .item,
-  .video-wrapper {
+  .video-card {
     width: 100% !important;
     max-width: 100% !important;
   }
 
-  .card img,
-  .item img,
-  video {
-    width: 100% !important;
-    height: auto !important;
+  .play-btn {
+    width: 40px;
+    height: 40px;
   }
 
-  iframe {
-    width: 100% !important;
-    max-width: 100% !important;
+  .play-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .video-links a {
+    font-size: 10px;
+    padding: 3px 8px;
   }
 }
 </style>
@@ -164,87 +192,275 @@ h1 {
 
 <div class="grid">
 
-<!-- INSTAGRAM 1–8 -->
-<div class="video-wrapper instagram-wrapper"><div class="video"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DVVwkT7Amf2/" data-instgrm-version="14"></blockquote></div><div class="overlay">Filming + Editing</div></div>
-
-<div class="video-wrapper instagram-wrapper"><div class="video"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DRw-vBfAr3W/" data-instgrm-version="14"></blockquote></div><div class="overlay">Video Shooting
-Video Editing</div></div>
-
-<div class="video-wrapper instagram-wrapper"><div class="video"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DT0cKvogtar/" data-instgrm-version="14"></blockquote></div><div class="overlay">Content Creation</div></div>
-
-<div class="video-wrapper instagram-wrapper"><div class="video"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DU-mXcbgiEa/" data-instgrm-version="14"></blockquote></div><div class="overlay">Filming + Editing</div></div>
-
-<div class="video-wrapper instagram-wrapper"><div class="video"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DV59T35AoQ1/" data-instgrm-version="14"></blockquote></div><div class="overlay">Filming + Editing</div></div>
-
-<div class="video-wrapper instagram-wrapper"><div class="video"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DVvhEPsAnkJ/" data-instgrm-version="14"></blockquote></div><div class="overlay">Video Shooting
-Video Editing</div></div>
-
-<div class="video-wrapper instagram-wrapper"><div class="video"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DVtZ_faAuz7/" data-instgrm-version="14"></blockquote></div><div class="overlay">Content Creation</div></div>
-
-<div class="video-wrapper instagram-wrapper"><div class="video"><blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DVqVRwmgmFJ/" data-instgrm-version="14"></blockquote></div><div class="overlay">Filming + Editing</div></div>
-
-<!-- TIKTOK 1–8 -->
-<div class="video-wrapper tiktok-wrapper">
-  <div class="video">
-    <iframe src="https://www.tiktok.com/embed/7522856631831498006" frameborder="0" allowfullscreen></iframe>
+  <div class="video-card">
+    <div class="video-wrapper">
+      <video src="https://res.cloudinary.com/dbkxtw3hq/video/upload/v1778842133/When_you_remember_that_dancers_also_need_strength_training_enoughheadquarters_Dancehall_Dance_cz7tg3.mp4" preload="metadata" playsinline></video>
+      <button class="play-btn" aria-label="Play video">
+        <svg viewBox="0 0 24 24" fill="#333"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+    </div>
+    <div class="video-links">
+      <a href="https://www.instagram.com/reel/DU-mXcbgiEa/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+    </div>
   </div>
-  <div class="overlay">Video Filming
-TikTok Content</div>
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <video src="https://res.cloudinary.com/dbkxtw3hq/video/upload/v1778841395/330AE725-FF03-498B-8076-3461A6B8441C_l9t0yv.mp4" preload="metadata" playsinline></video>
+      <button class="play-btn" aria-label="Play video">
+        <svg viewBox="0 0 24 24" fill="#333"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+    </div>
+    <div class="video-links">
+      <a href="https://www.instagram.com/reels/DV59T35AoQ1/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <video src="https://res.cloudinary.com/dbkxtw3hq/video/upload/v1778840803/75366F2F-1B68-4C91-BB94-AB62F13D4B6D_copy_czvmkn.mp4" preload="metadata" playsinline></video>
+      <button class="play-btn" aria-label="Play video">
+        <svg viewBox="0 0 24 24" fill="#333"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+    </div>
+    <div class="video-links">
+      <a href="https://www.instagram.com/reel/DWT3a95AvhB/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <video src="https://res.cloudinary.com/dbkxtw3hq/video/upload/v1778841716/Be_careful_it_s_addictive_Drop_in_half_price_March_16-22_1Up_by_activeimmortals_officialp_h4ouxz.mp4" preload="metadata" playsinline></video>
+      <button class="play-btn" aria-label="Play video">
+        <svg viewBox="0 0 24 24" fill="#333"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+    </div>
+    <div class="video-links">
+      <a href="https://www.instagram.com/reels/DVvhEPsAnkJ/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <video src="https://res.cloudinary.com/dbkxtw3hq/video/upload/v1778840669/6BD377C2-AEF0-46C2-ACE8-81934B7BFAFB_km4ida.mp4" preload="metadata" playsinline></video>
+      <button class="play-btn" aria-label="Play video">
+        <svg viewBox="0 0 24 24" fill="#333"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+    </div>
+    <div class="video-links">
+      <a href="https://www.instagram.com/enoughheadquarters/reel/DXCCXMxgrCE/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <video src="https://res.cloudinary.com/dbkxtw3hq/video/upload/v1778840845/FAB2940A-86AB-4D9B-AF54-3D2D0F6B6C1C_t7g2bh.mp4" preload="metadata" playsinline></video>
+      <button class="play-btn" aria-label="Play video">
+        <svg viewBox="0 0 24 24" fill="#333"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+    </div>
+    <div class="video-links">
+      <a href="https://www.instagram.com/reel/DVtZ_faAuz7/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <video src="https://res.cloudinary.com/dbkxtw3hq/video/upload/v1778840704/40F0CB00-9100-49B1-957F-E0CC103EA380_pj5h1u.mp4" preload="metadata" playsinline></video>
+      <button class="play-btn" aria-label="Play video">
+        <svg viewBox="0 0 24 24" fill="#333"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+    </div>
+    <div class="video-links">
+      <a href="https://www.instagram.com/p/DYPUBr0NyiJ/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <video src="https://res.cloudinary.com/dbkxtw3hq/video/upload/v1778841157/F4099650-F79B-4F03-B212-CE2250F6842C_lem8bq.mp4" preload="metadata" playsinline></video>
+      <button class="play-btn" aria-label="Play video">
+        <svg viewBox="0 0 24 24" fill="#333"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+    </div>
+    <div class="video-links">
+      <a href="https://www.instagram.com/reel/DWongMPgskF/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <video src="https://res.cloudinary.com/dbkxtw3hq/video/upload/v1778840761/415B8FF6-5246-4D71-9DEC-D8787F4DB2C2_ynokic.mp4" preload="metadata" playsinline></video>
+      <button class="play-btn" aria-label="Play video">
+        <svg viewBox="0 0 24 24" fill="#333"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+    </div>
+    <div class="video-links">
+      <a href="https://www.instagram.com/reel/DUn70oFAkua/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <video src="https://res.cloudinary.com/dbkxtw3hq/video/upload/v1778840778/7041FA45-BD42-4E2F-97EE-9850B3694792_awzvdh.mp4" preload="metadata" playsinline></video>
+      <button class="play-btn" aria-label="Play video">
+        <svg viewBox="0 0 24 24" fill="#333"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+    </div>
+    <div class="video-links">
+      <a href="https://www.instagram.com/enoughheadquarters/reel/DVVwkT7Amf2/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <video src="https://res.cloudinary.com/dbkxtw3hq/video/upload/v1778840824/C538ED19-B8FE-46E6-BDC6-C7CE645D6DEE_fon7qo.mp4" preload="metadata" playsinline></video>
+      <button class="play-btn" aria-label="Play video">
+        <svg viewBox="0 0 24 24" fill="#333"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+    </div>
+    <div class="video-links">
+      <a href="https://www.instagram.com/p/DYMceAgKzSt/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <video src="https://res.cloudinary.com/dbkxtw3hq/video/upload/v1778841200/10376A48-8E4F-4474-828C-DA48B10A67FE_f9uz06.mp4" preload="metadata" playsinline></video>
+      <button class="play-btn" aria-label="Play video">
+        <svg viewBox="0 0 24 24" fill="#333"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+    </div>
+    <div class="video-links">
+      <a href="https://www.instagram.com/p/DVLx_iJggdb/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <video src="https://res.cloudinary.com/dbkxtw3hq/video/upload/v1778841955/Extreme_vibes_theextremepushazofficial_brought_their_pure_energy_explosiveness_to_our_final_jgwrh8.mp4" preload="metadata" playsinline></video>
+      <button class="play-btn" aria-label="Play video">
+        <svg viewBox="0 0 24 24" fill="#333"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+    </div>
+    <div class="video-links">
+      <a href="https://www.instagram.com/reels/DRw-vBfAr3W/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <video src="https://res.cloudinary.com/dbkxtw3hq/video/upload/v1778842713/This_is_the_vibe_at_Bubbles_Wine_Open_level_dance_class_with_feel_good_vibes_Come_dance_h6mdb2.mp4" preload="metadata" playsinline></video>
+      <button class="play-btn" aria-label="Play video">
+        <svg viewBox="0 0 24 24" fill="#333"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+    </div>
+    <div class="video-links">
+      <a href="https://www.instagram.com/reel/DWZEg6dgv1l/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <video src="https://res.cloudinary.com/dbkxtw3hq/video/upload/v1778842386/76925654-5161-4599-8AB1-1C449B3C2501_kuxnsw.mp4" preload="metadata" playsinline></video>
+      <button class="play-btn" aria-label="Play video">
+        <svg viewBox="0 0 24 24" fill="#333"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+    </div>
+    <div class="video-links">
+      <a href="https://www.instagram.com/enoughheadquarters/reel/DWYuLfpgp3l/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video-wrapper">
+      <video src="https://res.cloudinary.com/dbkxtw3hq/video/upload/v1778843807/wazzilinda_m0hurv.mp4" preload="metadata" playsinline></video>
+      <button class="play-btn" aria-label="Play video">
+        <svg viewBox="0 0 24 24" fill="#333"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+    </div>
+    <div class="video-links">
+      <a href="https://www.instagram.com/reel/DXWaL8lAvSW/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+
 </div>
 
-<div class="video-wrapper tiktok-wrapper">
-  <div class="video">
-    <iframe src="https://www.tiktok.com/embed/7606025948076494083" frameborder="0" allowfullscreen></iframe>
-  </div>
-  <div class="overlay">Editing + Effects</div>
-</div>
-  
-<div class="video-wrapper tiktok-wrapper">
-  <div class="video">
-    <iframe src="https://www.tiktok.com/embed/7523984929827409174" frameborder="0" allowfullscreen></iframe>
-  </div>
-  <div class="overlay">Filming + Posting</div>
-</div>
-  
-<div class="video-wrapper tiktok-wrapper">
-  <div class="video">
-    <iframe src="https://www.tiktok.com/embed/7594105924864757014" frameborder="0" allowfullscreen></iframe>
-  </div>
-  <div class="overlay">Content Editing</div>
-</div>
-  
-<div class="video-wrapper tiktok-wrapper">
-  <div class="video">
-    <iframe src="https://www.tiktok.com/embed/7614826229799193858" frameborder="0" allowfullscreen></iframe>
-  </div>
-  <div class="overlay">Video Filming
-TikTok Content</div>
-</div>
+<script>
+document.querySelectorAll('.video-wrapper').forEach(wrapper => {
+  const video = wrapper.querySelector('video');
+  const btn = wrapper.querySelector('.play-btn');
 
-<div class="video-wrapper tiktok-wrapper">
-  <div class="video">
-    <iframe src="https://www.tiktok.com/embed/7603337849177410838" frameborder="0" allowfullscreen></iframe>
-  </div>
-  <div class="overlay">Editing + Effects</div>
-</div>
-  
-<div class="video-wrapper tiktok-wrapper">
-  <div class="video">
-    <iframe src="https://www.tiktok.com/embed/7585967126930803990" frameborder="0" allowfullscreen></iframe>
-  </div>
-  <div class="overlay">Filming + Posting</div>
-</div>
-  
-<div class="video-wrapper tiktok-wrapper">
-  <div class="video">
-    <iframe src="https://www.tiktok.com/embed/7610814341755014423" frameborder="0" allowfullscreen></iframe>
-  </div>
-  <div class="overlay">Content Editing</div>
-</div>
-  
-</div>
+  wrapper.addEventListener('click', () => {
+    if (video.paused) {
+      // Pause all other videos first
+      document.querySelectorAll('.video-wrapper video').forEach(v => {
+        if (v !== video && !v.paused) {
+          v.pause();
+          v.closest('.video-wrapper').classList.remove('playing');
+        }
+      });
+      video.play();
+      wrapper.classList.add('playing');
+    } else {
+      video.pause();
+      wrapper.classList.remove('playing');
+    }
+  });
 
-<script async src="//www.instagram.com/embed.js"></script>
+  video.addEventListener('ended', () => {
+    wrapper.classList.remove('playing');
+  });
+});
+</script>
 
 </body>
 </html>
